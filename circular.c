@@ -70,7 +70,7 @@ void rr(t_stack *a, t_stack *b){
 }
 
 void op_push(t_stack *dst,t_stack *src){
-	if(!src)
+	if(!src->size)
 		return;
 	int tmp;
 
@@ -112,3 +112,5 @@ int main(){
 	printf("b second (b.head+1) = %d\n", b.data[(b.head+1) % b.capacity]);
 	return 0;
 }
+//構造体に名前をつけられる
+//配列のトークンに大きな数字が入らないのでは？

@@ -3,7 +3,11 @@
 #include <stddef.h>
 #include <stdio.h>
 
-static int has_duplicate(int *arr, int size){
+int count_tokens(const char *s){
+
+}
+
+static int has_overlap(int *arr, int size){
 	int i;
 	int j;
 	i = 0;
@@ -72,7 +76,7 @@ int	main(int argc,char**argv)
 	if(argc < 2)
 		return 0;
 	size = argc -1;
-	if(atoi_array(arr, &argv[1] ,size) || has_duplicate(arr,size))
+	if(atoi_array(arr, &argv[1] ,size) || has_overlap(arr,size) || )
 	{
 		printf("Error\n");
 		return 1;
