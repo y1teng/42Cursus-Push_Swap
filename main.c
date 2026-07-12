@@ -1,26 +1,26 @@
-//#include "libft.h"
+#include "libft.h"
 #include <limits.h>
 #include <stddef.h>
 #include <stdio.h>
 
-int count_tokens(const char *s){
+static int	has_overlap(int *arr, int size)
+{
+	int	i;
+	int	j;
 
-}
-
-static int has_overlap(int *arr, int size){
-	int i;
-	int j;
 	i = 0;
-	while(i < size){
+	while (i < size)
+	{
 		j = i + 1;
-		while(j < size){
-			if(arr[i] == arr[j])
-				return 1;
+		while (j < size)
+		{
+			if (arr[i] == arr[j])
+				return (1);
 			j++;
 		}
 		i++;
 	}
-	return 0;
+	return (0);
 }
 
 static int	parse_int(const char *s, int *out)
@@ -66,23 +66,25 @@ static int	atoi_array(int *arr, char **argv, int size)
 	}
 	return (0);
 }
+#include <stdio.h>
 
-int	main(int argc,char**argv)
+int	main(int argc, char **argv)
 {
-	int arr[100];
-	int i;
-	int size;
-	
-	if(argc < 2)
-		return 0;
-	size = argc -1;
-	if(atoi_array(arr, &argv[1] ,size) || has_overlap(arr,size) || )
+	int	arr[100];
+	int	i;
+	int	size;
+
+	if (argc < 2)
+		return (0);
+	size = argc - 1;
+	if (atoi_array(arr, &argv[1], size) || has_overlap(arr, size))
 	{
 		printf("Error\n");
-		return 1;
+		return (1);
 	}
 	i = 0;
-	while(i < size){
+	while (i < size)
+	{
 		printf("%d\n", arr[i]);
 		i++;
 	}
