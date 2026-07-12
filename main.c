@@ -5,9 +5,24 @@ void	parse_flags(int argc, char **argv, t_options *opt){
 	opt->bench = 0;
 	int i;
 	i = 1;
+	
+	while(i < argc)
+	{
+		if(ft_strncmp(argv[i],"--adaptive",8) == 0)
+			opt->strategy = ADAPTIVE;
+		if(ft_strncmp(argv[i],"--simple",9) == 0)
+			opt->strategy = SIMPLE;
+		if(ft_strncmp(argv[i],"--medium",9) == 0)
+			opt->strategy = MEDIUM;
+		if(ft_strncmp(argv[i],"--complex",10) == 0)
+			opt->strategy = COMPLEX;
+		if(ft_strncmp(argv[i],"--bench",8) == 0)
+			opt->strategy = BENCH;
+		i++;
+	}
+	opt->num_start = i;
 
-	if(ft_strncmp(argv[i],"--simple",9) == 0)
-		opt->strategy = SIMPLE;
+
 }
 
 static int	parse_has_overlap(int *arr, int size)
@@ -83,7 +98,10 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	if(argc == 2 && is_space())
+	if(argc == 2 && is_space(argv[1]))
+	{
+
+	}
 	size = argc - 1;
 	if (parse_atoi_array(arr, &argv[1], size) || parse_has_overlap(arr, size))
 	{
@@ -91,6 +109,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	i = 0;
+	parse_flags(argc, argv, opt);
 	while (i < size)
 	{
 		printf("%d\n", arr[i]);
