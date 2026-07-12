@@ -1,6 +1,14 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+void	print_op(y_op op)
+{
+	static const char *const names[] = {[ACT_NONE] = "", [ACT_SA] = "sa",
+		[ACT_SB] = "sb", [ACT_SS] = "ss", [ACT_PA] = "pa", [ACT_PB] = "pb",
+		[ACT_RA] = "ra", [ACT_RB] = "rb", [ACT_RR] = "rr", [ACT_RRA] = "rra",
+		[ACT_RRB] = "rrb", [ACT_RRR] = "rrr"};
+}
+
 static int	sort_find_min_index(t_stack *a)
 {
 	int	count;
@@ -27,7 +35,7 @@ static int	sort_find_min_index(t_stack *a)
 	return (min_idx);
 }
 
-//void	op_visualize(t_stack *a, t_stack *b, char*label)
+// void	op_visualize(t_stack *a, t_stack *b, char*label)
 //{
 //	int	a_top;
 //	int	b_top;
@@ -48,15 +56,14 @@ static int	sort_find_min_index(t_stack *a)
 //	}
 //}
 
-void sort_simple(t_stack *a,t_stack *b)
+void	sort_simple(t_stack *a, t_stack *b)
 {
-	int		i;
-	int		steps;
-	int		origin_size;
+	int	i;
+	int	steps;
+	int	origin_size;
 
 	origin_size = a->size;
 	i = 0;
-	
 	while (i < origin_size)
 	{
 		steps = sort_find_min_index(a);
@@ -75,7 +82,7 @@ void sort_simple(t_stack *a,t_stack *b)
 		i++;
 	}
 }
-//int	main(void)
+// int	main(void)
 //{
 //	t_stack	a;
 //	t_stack	b;
@@ -96,7 +103,7 @@ void sort_simple(t_stack *a,t_stack *b)
 //	origin_size = a.size;
 //	i = 0;
 //	op_visualize(&a, &b, "before");
-//	
+//
 //	while (i < origin_size)
 //	{
 //		steps = find_min_index(&a);
@@ -118,7 +125,7 @@ void sort_simple(t_stack *a,t_stack *b)
 //	return (0);
 //}
 
-//int main()
+// int main()
 //{
 //		t_stack a;
 //	int buffer[4] = {3, 1, 2, 4};

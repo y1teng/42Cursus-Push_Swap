@@ -15,6 +15,14 @@ typedef enum e_strategy
 	COMPLEX
 }				t_strategy;
 
+typedef enum eop
+{
+	OP_SA, OP_SB, OP_SS,
+	OP_PA, OP_PB,
+	OP_RA, OP_RB, OP_RR,
+	OP_RRA, OP_RRB, OP_RRR
+} t_op;
+
 typedef struct s_options
 {
 	t_strategy	strategy;
