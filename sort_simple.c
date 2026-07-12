@@ -48,48 +48,69 @@ void	op_visualize(t_stack *a, t_stack *b, char*label)
 	}
 }
 
-int	main(void)
-{
-	t_stack	a;
-	t_stack	b;
-	int		buffer_a[4] = {3, 1, 2, 4};
-	int		buffer_b[4] = {0};
-	int		i;
-	int		steps;
-	int		origin_size;
+//int	main(void)
+//{
+//	t_stack	a;
+//	t_stack	b;
+//	int		buffer_a[4] = {3, 1, 2, 4};
+//	int		buffer_b[4] = {0};
+//	int		i;
+//	int		steps;
+//	int		origin_size;
+//
+//	a.data = buffer_a;
+//	a.capacity = 4;
+//	a.size = 4;
+//	a.head = 2;
+//	b.data = buffer_b;
+//	b.capacity = 4;
+//	b.size = 0;
+//	b.head = 2;
+//	origin_size = a.size;
+//	i = 0;
+//	op_visualize(&a, &b, "before");
+//	
+//	while (i < origin_size)
+//	{
+//		steps = find_min_index(&a);
+//		while (steps)
+//		{
+//			op_ra(&a);
+//			steps--;
+//		}
+//		op_pb(&b, &a);
+//		i++;
+//	}
+//	i = 0;
+//	while (i < origin_size)
+//	{
+//		op_pa(&a, &b);
+//		i++;
+//	}
+//	op_visualize(&a, &b, "after");
+//	return (0);
+//}
 
-	a.data = buffer_a;
+int main()
+{
+		t_stack a;
+	int buffer[4] = {3, 1, 2, 4};
+
+	a.data = buffer;
 	a.capacity = 4;
-	a.size = 4;
-	a.head = 2;
-	b.data = buffer_b;
-	b.capacity = 4;
-	b.size = 0;
-	b.head = 2;
-	origin_size = a.size;
-	i = 0;
-//	op_visualize(&a, &b);
-	
-	while (i < origin_size)
-	{
-		steps = find_min_index(&a);
-		while (steps)
-		{
-			op_ra(&a);
-			op_visualize(&a, &b,"op_ra");
-			steps--;
-		}
-		op_pb(&b, &a);
-		op_visualize(&a, &b,"op_pb");
-		i++;
-	}
-	i = 0;
-	while (i < origin_size)
-	{
-		op_pa(&a, &b);
-		op_visualize(&a, &b,"op_pa");
-		i++;
-	}
-//	op_visualize(&a, &b);
+	a.size = 2;
+	a.head = 3;
+
+	printf("--- raを押す前 ---\n");
+	for (int i = 0; i < 4; i++)
+		printf("data[%d] = %d\n", i, a.data[i]);
+
+	op_ra(&a);
+
+	printf("--- raを押した後 ---\n");
+	for (int i = 0; i < 4; i++)
+		printf("data[%d] = %d\n", i, a.data[i]);
+
+	printf("head = %d\n", a.head);
 	return (0);
 }

@@ -2,6 +2,9 @@
 
 void	op_rotate(t_stack *n)
 {
+	int new_pos;
+	new_pos = (n->head + n->size) % n->capacity;
+	n->data[new_pos] = n->data[n->head];
 	n->head = (n->head + 1) % n->capacity;
 }
 
