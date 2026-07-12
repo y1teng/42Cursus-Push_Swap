@@ -10,14 +10,16 @@ void	parse_flags(int argc, char **argv, t_options *opt){
 	{
 		if(ft_strncmp(argv[i],"--adaptive",11) == 0)
 			opt->strategy = ADAPTIVE;
-		if(ft_strncmp(argv[i],"--simple",9) == 0)
+		else if(ft_strncmp(argv[i],"--simple",9) == 0)
 			opt->strategy = SIMPLE;
-		if(ft_strncmp(argv[i],"--medium",9) == 0)
+		else if(ft_strncmp(argv[i],"--medium",9) == 0)
 			opt->strategy = MEDIUM;
-		if(ft_strncmp(argv[i],"--complex",10) == 0)
+		else if(ft_strncmp(argv[i],"--complex",10) == 0)
 			opt->strategy = COMPLEX;
-		if(ft_strncmp(argv[i],"--bench",8) == 0)
+		else if(ft_strncmp(argv[i],"--bench",8) == 0)
 			opt->bench = 1;
+		else
+			break;
 		i++;
 	}
 	opt->num_start = i;
