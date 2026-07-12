@@ -8,7 +8,7 @@ void	parse_flags(int argc, char **argv, t_options *opt){
 	
 	while(i < argc)
 	{
-		if(ft_strncmp(argv[i],"--adaptive",8) == 0)
+		if(ft_strncmp(argv[i],"--adaptive",11) == 0)
 			opt->strategy = ADAPTIVE;
 		if(ft_strncmp(argv[i],"--simple",9) == 0)
 			opt->strategy = SIMPLE;
@@ -17,7 +17,7 @@ void	parse_flags(int argc, char **argv, t_options *opt){
 		if(ft_strncmp(argv[i],"--complex",10) == 0)
 			opt->strategy = COMPLEX;
 		if(ft_strncmp(argv[i],"--bench",8) == 0)
-			opt->strategy = BENCH;
+			opt->bench = 1;
 		i++;
 	}
 	opt->num_start = i;
@@ -98,22 +98,26 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	if(argc == 2 && is_space(argv[1]))
-	{
-
-	}
-	size = argc - 1;
+	parse_flags(argc, argv, &opt);
+	size = argc - opt.num_start;
+	if(size <= 0)
+		return 0;
 	if (parse_atoi_array(arr, &argv[1], size) || parse_has_overlap(arr, size))
 	{
 		printf("Error\n");
 		return (1);
 	}
-	i = 0;
-	parse_flags(argc, argv, opt);
-	while (i < size)
-	{
-		printf("%d\n", arr[i]);
-		i++;
-	}
+	a.data = arr;
+	a.capacity = size;
+	a.size = size;
+	a.head = 0;
+	i = size -1;
+	int buffer_b[100];
+	b.data = buffer_b;
+	b.capacity = size;
+	b.size = 0;
+	b.head = 0;
+	sort_simple(&a,&b);
+
 	return (0);
 }
