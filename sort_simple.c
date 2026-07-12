@@ -43,32 +43,46 @@ int	main(void)
 	b.size = 0;
 	b.head = 2;
 
-	int i = 0;
-	int a_top = (a.head + i) % a.capacity;
-	int b_top = (b.head + i) % b.capacity;
+	int a_top;
+	int b_top;
 //	printf("after top: = %d\n",a.data[a.head % a.capacity]);
 //	printf("before: head=%d\n", a.head);
 //	idx = find_min_index(&a);
 //	printf("idx = %d\n", idx);
 //	printf("after: head=%d\n", a.head);
-//	
+//	y
 //	printf("before top: = %d\n",a.data[a.head % a.capacity]);
 	for(int i = 0;i < a.capacity;i++)
+	{
+		a_top = (a.head + i) % a.capacity;
 		printf("before: a.data[(%d)] = %d\n", a_top, a.data[i]);
+	}	
+
 	for(int i = 0;i < b.capacity;i++)
+	{
+		b_top = (b.head + i) % b.capacity;
 		printf("before: b.data[(%d)] = %d\n", b_top, b.data[i]);
+	}
+
 	int steps = find_min_index(&a);
 
 	while(steps){
 		op_ra(&a);
 		steps--;
 	}
-	op_pb(&a, &b);
+	op_pb(&b, &a);
 	
 	for(int i = 0;i < a.capacity;i++)
+	{
+		a_top = (a.head + i) % a.capacity;
 		printf("after: a.data[(%d)] = %d\n", a_top, a.data[i]);
+	}
+
 	for(int i = 0;i < b.capacity;i++)
+	{
+		b_top = (b.head + i) % b.capacity;
 		printf("after: b.data[(%d)] = %d\n", b_top, b.data[i]);
+	}
 
 	return (0);
 }
