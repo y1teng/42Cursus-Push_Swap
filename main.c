@@ -1,7 +1,18 @@
-#include "libft.h"
-#include <limits.h>
-#include <stddef.h>
-#include <stdio.h>
+#include "push_swap.h"
+
+void	parse_flags(int argc, char **argv, t_options *opt){
+	apt->strategy = ADAPTIVE;
+	opt->bench = 0;
+	int i;
+	i = 1;
+	t_strategy table[4];
+	table[0] = 
+	while(i < argc &&ft_strncmp((const char)argv[i],"--",2))
+	{
+		while()
+	}
+	opt->num_start = i;
+}
 
 static int	has_overlap(int *arr, int size)
 {

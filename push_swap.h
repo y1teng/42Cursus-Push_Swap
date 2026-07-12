@@ -1,6 +1,12 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+#include "libft.h"
+#include <limits.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <stdbool.h>
+
 typedef enum e_strategy
 {
 	ADAPTIVE,
@@ -23,6 +29,13 @@ typedef struct s_stack
 	int			size;
 	int			head;
 }				t_stack;
+
+typedef struct s_strategy
+{
+	int	spec;
+	int		(*strategy)(t_stack* a,t_stack *b);
+}			t_strategy;
+void sort_simple(t_stack *a,t_stack *b);
 
 int				find_min_index(t_stack *a);
 
