@@ -40,9 +40,12 @@ int	main(void)
 
 	b.data = buffer_b;
 	b.capacity = 4;
-	b.size = 4;
+	b.size = 0;
 	b.head = 2;
 
+	int i = 0;
+	int a_top = (a.head + i) % a.capacity;
+	int b_top = (b.head + i) % b.capacity;
 //	printf("after top: = %d\n",a.data[a.head % a.capacity]);
 //	printf("before: head=%d\n", a.head);
 //	idx = find_min_index(&a);
@@ -50,13 +53,22 @@ int	main(void)
 //	printf("after: head=%d\n", a.head);
 //	
 //	printf("before top: = %d\n",a.data[a.head % a.capacity]);
+	for(int i = 0;i < a.capacity;i++)
+		printf("before: a.data[(%d)] = %d\n", a_top, a.data[i]);
+	for(int i = 0;i < b.capacity;i++)
+		printf("before: b.data[(%d)] = %d\n", b_top, b.data[i]);
 	int steps = find_min_index(&a);
+
 	while(steps){
 		op_ra(&a);
 		steps--;
 	}
 	op_pb(&a, &b);
-
+	
+	for(int i = 0;i < a.capacity;i++)
+		printf("after: a.data[(%d)] = %d\n", a_top, a.data[i]);
+	for(int i = 0;i < b.capacity;i++)
+		printf("after: b.data[(%d)] = %d\n", b_top, b.data[i]);
 
 	return (0);
 }
