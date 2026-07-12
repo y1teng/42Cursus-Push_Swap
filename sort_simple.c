@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-int	find_min_index(t_stack *a)
+int	sort_find_min_index(t_stack *a)
 {
 	int	count;
 	int	i;
@@ -27,27 +27,54 @@ int	find_min_index(t_stack *a)
 	return (min_idx);
 }
 
-void	op_visualize(t_stack *a, t_stack *b, char*label)
+//void	op_visualize(t_stack *a, t_stack *b, char*label)
+//{
+//	int	a_top;
+//	int	b_top;
+//	puts("WWWWWWWWWWWWWWWWWWWWWWWWW");
+//	printf("#a->size[%d], #b->size[%d]\n", a->size, b->size);
+//	for (int i = 0; i < a->capacity; i++)
+//	{
+//		a_top = (a->head + i) % a->capacity;
+//		printf("%s: a->head[%d], a->data[(%d)] = %d\n",label, a->head, a_top,
+//			a->data[a_top]);
+//	}
+//	puts("------------------------");
+//	for (int i = 0; i < b->capacity; i++)
+//	{
+//		b_top = (b->head + i) % b->capacity;
+//		printf("%s: b->head[%d], b->data[(%d)] = %d\n",label, b->head, b_top,
+//			b->data[b_top]);
+//	}
+//}
+
+void sort_simple(t_stack *a,t_stack *b)
 {
-	int	a_top;
-	int	b_top;
-	puts("WWWWWWWWWWWWWWWWWWWWWWWWW");
-	printf("#a->size[%d], #b->size[%d]\n", a->size, b->size);
-	for (int i = 0; i < a->capacity; i++)
+	int		i;
+	int		steps;
+	int		origin_size;
+
+	origin_size = a.size;
+	i = 0;
+	
+	while (i < origin_size)
 	{
-		a_top = (a->head + i) % a->capacity;
-		printf("%s: a->head[%d], a->data[(%d)] = %d\n",label, a->head, a_top,
-			a->data[a_top]);
+		steps = find_min_index(&a);
+		while (steps)
+		{
+			op_ra(&a);
+			steps--;
+		}
+		op_pb(&b, &a);
+		i++;
 	}
-	puts("------------------------");
-	for (int i = 0; i < b->capacity; i++)
+	i = 0;
+	while (i < origin_size)
 	{
-		b_top = (b->head + i) % b->capacity;
-		printf("%s: b->head[%d], b->data[(%d)] = %d\n",label, b->head, b_top,
-			b->data[b_top]);
+		op_pa(&a, &b);
+		i++;
 	}
 }
-
 //int	main(void)
 //{
 //	t_stack	a;
@@ -91,26 +118,26 @@ void	op_visualize(t_stack *a, t_stack *b, char*label)
 //	return (0);
 //}
 
-int main()
-{
-		t_stack a;
-	int buffer[4] = {3, 1, 2, 4};
-
-	a.data = buffer;
-	a.capacity = 4;
-	a.size = 2;
-	a.head = 3;
-
-	printf("--- raを押す前 ---\n");
-	for (int i = 0; i < 4; i++)
-		printf("data[%d] = %d\n", i, a.data[i]);
-
-	op_ra(&a);
-
-	printf("--- raを押した後 ---\n");
-	for (int i = 0; i < 4; i++)
-		printf("data[%d] = %d\n", i, a.data[i]);
-
-	printf("head = %d\n", a.head);
-	return (0);
-}
+//int main()
+//{
+//		t_stack a;
+//	int buffer[4] = {3, 1, 2, 4};
+//
+//	a.data = buffer;
+//	a.capacity = 4;
+//	a.size = 2;
+//	a.head = 3;
+//
+//	printf("--- raを押す前 ---\n");
+//	for (int i = 0; i < 4; i++)
+//		printf("data[%d] = %d\n", i, a.data[i]);
+//
+//	op_ra(&a);
+//
+//	printf("--- raを押した後 ---\n");
+//	for (int i = 0; i < 4; i++)
+//		printf("data[%d] = %d\n", i, a.data[i]);
+//
+//	printf("head = %d\n", a.head);
+//	return (0);
+//}
