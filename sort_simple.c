@@ -50,8 +50,8 @@ void	op_visualize(t_stack *a, t_stack *b)
 int	main(void)
 {
 	t_stack	a;
-	int		buffer_a[4] = {3, 1, 2, 4};
 	t_stack	b;
+	int		buffer_a[4] = {3, 1, 2, 4};
 	int		buffer_b[4] = {0};
 	int		i;
 	int		steps;
@@ -68,10 +68,10 @@ int	main(void)
 	origin_size = a.size;
 	i = 0;
 	op_visualize(&a, &b);
-	while (i < a.size)
+	
+	while (i < origin_size)
 	{
 		steps = find_min_index(&a);
-		printf("steps[%d]\n", steps);
 		while (steps)
 		{
 			op_ra(&a);
@@ -80,7 +80,6 @@ int	main(void)
 		op_pb(&b, &a);
 		i++;
 	}
-
 	op_visualize(&a, &b);
 	i = 0;
 	while (i < origin_size)
