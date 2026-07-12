@@ -76,6 +76,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
+	if(argc == 2 && is_space())
 	size = argc - 1;
 	if (atoi_array(arr, &argv[1], size) || has_overlap(arr, size))
 	{
