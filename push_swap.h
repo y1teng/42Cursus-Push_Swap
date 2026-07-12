@@ -3,16 +3,18 @@
 
 typedef enum e_strategy
 {
-	ADAPTIVE; SIMPLE; MEDIUM; COMPLEX;
-}
-t_strategy;
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+}				t_strategy;
 
 typedef struct s_options
 {
 	t_strategy	strategy;
 	int			bench;
 	int			num_start;
-}				toptions;
+}				t_options;
 
 typedef struct s_stack
 {
