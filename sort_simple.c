@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-int	sort_find_min_index(t_stack *a)
+static int	sort_find_min_index(t_stack *a)
 {
 	int	count;
 	int	i;

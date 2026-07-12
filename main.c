@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 void	parse_flags(int argc, char **argv, t_options *opt){
-	apt->strategy = ADAPTIVE;
+	opt->strategy = ADAPTIVE;
 	opt->bench = 0;
 	int i;
 	i = 1;
@@ -93,8 +93,10 @@ static int	parse_atoi_array(int *arr, char **argv, int size)
 int	main(int argc, char **argv)
 {
 	int	arr[100];
-	int	i;
 	int	size;
+	t_options opt;
+	t_stack a;
+	t_stack b;
 
 	if (argc < 2)
 		return (0);
@@ -102,7 +104,7 @@ int	main(int argc, char **argv)
 	size = argc - opt.num_start;
 	if(size <= 0)
 		return 0;
-	if (parse_atoi_array(arr, &argv[1], size) || parse_has_overlap(arr, size))
+	if (parse_atoi_array(arr, &argv[opt.num_start], size) || parse_has_overlap(arr, size))
 	{
 		printf("Error\n");
 		return (1);
@@ -111,7 +113,6 @@ int	main(int argc, char **argv)
 	a.capacity = size;
 	a.size = size;
 	a.head = 0;
-	i = size -1;
 	int buffer_b[100];
 	b.data = buffer_b;
 	b.capacity = size;

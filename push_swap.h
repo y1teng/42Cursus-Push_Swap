@@ -1,7 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft.h"
+#include "libft/libft.h"
 #include <limits.h>
 #include <stddef.h>
 #include <stdio.h>
@@ -31,7 +31,7 @@ typedef struct s_stack
 }				t_stack;
 
 
-int				find_min_index(t_stack *a);
+void sort_simple(t_stack *a,t_stack *b);
 
 // operations
 void			op_push(t_stack *dst, t_stack *src);
