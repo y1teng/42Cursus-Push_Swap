@@ -31,14 +31,15 @@ void	op_visualize(t_stack *a, t_stack *b, char*label)
 {
 	int	a_top;
 	int	b_top;
-
-	printf("a->size[%d]\n", a->size);
+	puts("WWWWWWWWWWWWWWWWWWWWWWWWW");
+	printf("#a->size[%d], #b->size[%d]\n", a->size, b->size);
 	for (int i = 0; i < a->capacity; i++)
 	{
 		a_top = (a->head + i) % a->capacity;
 		printf("%s: a->head[%d], a->data[(%d)] = %d\n",label, a->head, a_top,
 			a->data[a_top]);
 	}
+	puts("------------------------");
 	for (int i = 0; i < b->capacity; i++)
 	{
 		b_top = (b->head + i) % b->capacity;
@@ -75,17 +76,18 @@ int	main(void)
 		while (steps)
 		{
 			op_ra(&a);
-			op_visualize(&a, &b,"ra");
+			op_visualize(&a, &b,"op_ra");
 			steps--;
 		}
 		op_pb(&b, &a);
+		op_visualize(&a, &b,"op_pb");
 		i++;
 	}
 	i = 0;
 	while (i < origin_size)
 	{
 		op_pa(&a, &b);
-		op_visualize(&a, &b,"pa");
+		op_visualize(&a, &b,"op_pa");
 		i++;
 	}
 //	op_visualize(&a, &b);
