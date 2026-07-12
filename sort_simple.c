@@ -39,9 +39,9 @@ int	main(void)
 	int	buffer_b[4] = {0};
 
 	b.data = buffer_b;
-	a.capacity = 4;
-	a.size = 4;
-	a.head = 2;
+	b.capacity = 4;
+	b.size = 4;
+	b.head = 2;
 
 //	printf("after top: = %d\n",a.data[a.head % a.capacity]);
 //	printf("before: head=%d\n", a.head);
