@@ -54,24 +54,24 @@ void sort_simple(t_stack *a,t_stack *b)
 	int		steps;
 	int		origin_size;
 
-	origin_size = a.size;
+	origin_size = a->size;
 	i = 0;
 	
 	while (i < origin_size)
 	{
-		steps = find_min_index(&a);
+		steps = sort_find_min_index(a);
 		while (steps)
 		{
-			op_ra(&a);
+			op_ra(a);
 			steps--;
 		}
-		op_pb(&b, &a);
+		op_pb(b, a);
 		i++;
 	}
 	i = 0;
 	while (i < origin_size)
 	{
-		op_pa(&a, &b);
+		op_pa(a, b);
 		i++;
 	}
 }
