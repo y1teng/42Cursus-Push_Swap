@@ -27,7 +27,7 @@ int	find_min_index(t_stack *a)
 	return (min_idx);
 }
 
-void	op_visualize(t_stack *a, t_stack *b)
+void	op_visualize(t_stack *a, t_stack *b, char*label)
 {
 	int	a_top;
 	int	b_top;
@@ -36,13 +36,13 @@ void	op_visualize(t_stack *a, t_stack *b)
 	for (int i = 0; i < a->capacity; i++)
 	{
 		a_top = (a->head + i) % a->capacity;
-		printf("before: a->head[%d], a->data[(%d)] = %d\n", a->head, a_top,
+		printf("%s: a->head[%d], a->data[(%d)] = %d\n",label, a->head, a_top,
 			a->data[a_top]);
 	}
 	for (int i = 0; i < b->capacity; i++)
 	{
 		b_top = (b->head + i) % b->capacity;
-		printf("before: b->head[%d], b->data[(%d)] = %d\n", b->head, b_top,
+		printf("%s: b->head[%d], b->data[(%d)] = %d\n",label, b->head, b_top,
 			b->data[b_top]);
 	}
 }
@@ -74,8 +74,8 @@ int	main(void)
 		steps = find_min_index(&a);
 		while (steps)
 		{
-			op_visualize(&a, &b);
 			op_ra(&a);
+			op_visualize(&a, &b,"ra");
 			steps--;
 		}
 		op_pb(&b, &a);
@@ -85,6 +85,7 @@ int	main(void)
 	while (i < origin_size)
 	{
 		op_pa(&a, &b);
+		op_visualize(&a, &b,"pa");
 		i++;
 	}
 //	op_visualize(&a, &b);
