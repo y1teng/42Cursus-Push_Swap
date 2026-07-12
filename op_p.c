@@ -14,12 +14,12 @@ void	op_push(t_stack *dst, t_stack *src)
 	src->size--;
 }
 
-void	pa(t_stack *dst, t_stack *src)
+void	op_pa(t_stack *dst, t_stack *src)
 {
 	op_push(dst, src);
 }
 
-void	pb(t_stack *dst, t_stack *src)
+void	op_pb(t_stack *dst, t_stack *src)
 {
 	op_push(dst, src);
 }

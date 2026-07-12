@@ -13,16 +13,16 @@ void	op_swap(t_stack *n)
 	n->data[second] = tmp;
 }
 
-void	sa(t_stack *a)
+void	op_sa(t_stack *a)
 {
 	op_swap(a);
 }
 
-void	sb(t_stack *b)
+void	op_sb(t_stack *b)
 {
 	op_swap(b);
 }
-void	ss(t_stack *a, t_stack *b)
+void	op_ss(t_stack *a, t_stack *b)
 {
 	op_swap(a);
 	op_swap(b);

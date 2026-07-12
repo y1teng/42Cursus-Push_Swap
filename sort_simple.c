@@ -28,13 +28,21 @@ int	find_min_index(t_stack *a)
 int	main(void)
 {
 	t_stack	a;
-	int		buffer[4] = {3, 1, 2, 4};
+	int		buffer_a[4] = {3, 1, 2, 4};
 	
-//	a.data = buffer;
-//	a.capacity = 4;
-//	a.size = 4;
-//	a.head = 2;
-//
+	a.data = buffer_a;
+	a.capacity = 4;
+	a.size = 4;
+	a.head = 2;
+
+	t_stack b;
+	int	buffer_b[4] = {0};
+
+	b.data = buffer_b;
+	a.capacity = 4;
+	a.size = 4;
+	a.head = 2;
+
 //	printf("after top: = %d\n",a.data[a.head % a.capacity]);
 //	printf("before: head=%d\n", a.head);
 //	idx = find_min_index(&a);
@@ -47,7 +55,7 @@ int	main(void)
 		op_ra(&a);
 		steps--;
 	}
-	op_pb;
+	op_pb(&a, &b);
 
 
 	return (0);
