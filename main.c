@@ -5,16 +5,12 @@ void	parse_flags(int argc, char **argv, t_options *opt){
 	opt->bench = 0;
 	int i;
 	i = 1;
-	t_strategy table[4];
-	table[0] = 
-	while(i < argc &&ft_strncmp((const char)argv[i],"--",2))
-	{
-		while()
-	}
-	opt->num_start = i;
+
+	if(ft_strncmp(argv[i],"--simple",9) == 0)
+		opt->strategy = SIMPLE;
 }
 
-static int	has_overlap(int *arr, int size)
+static int	parse_has_overlap(int *arr, int size)
 {
 	int	i;
 	int	j;
@@ -64,7 +60,7 @@ static int	parse_int(const char *s, int *out)
 	return (0);
 }
 
-static int	atoi_array(int *arr, char **argv, int size)
+static int	parse_atoi_array(int *arr, char **argv, int size)
 {
 	int	i;
 
@@ -89,7 +85,7 @@ int	main(int argc, char **argv)
 		return (0);
 	if(argc == 2 && is_space())
 	size = argc - 1;
-	if (atoi_array(arr, &argv[1], size) || has_overlap(arr, size))
+	if (parse_atoi_array(arr, &argv[1], size) || parse_has_overlap(arr, size))
 	{
 		printf("Error\n");
 		return (1);

@@ -30,12 +30,6 @@ typedef struct s_stack
 	int			head;
 }				t_stack;
 
-typedef struct s_strategy
-{
-	int	spec;
-	int		(*strategy)(t_stack* a,t_stack *b);
-}			t_strategy;
-void sort_simple(t_stack *a,t_stack *b);
 
 int				find_min_index(t_stack *a);
 
