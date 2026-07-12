@@ -11,15 +11,18 @@ void	op_rotate(t_stack *n)
 void	op_ra(t_stack *a)
 {
 	op_rotate(a);
+	print_op(OP_RA);
 }
 
 void	op_rb(t_stack *b)
 {
 	op_rotate(b);
+	print_op(OP_RB);
 }
 
 void	op_rr(t_stack *a, t_stack *b)
 {
 	op_rotate(a);
 	op_rotate(b);
+	print_op(OP_RR);
 }

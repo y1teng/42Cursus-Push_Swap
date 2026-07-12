@@ -1,16 +1,5 @@
 #include "push_swap.h"
 
-void	print_op(y_op op)
-{
-	static const char *const	names[] = {
-		[OP_SA] = "sa", [OP_SB] = "sb", [OP_SS] = "ss",
-		[OP_PA] = "pa", [OP_PB] = "pb",
-		[OP_RA] = "ra", [OP_RB] = "rb", [OP_RR] = "rr",
-		[OP_RRA] = "rra", [OP_RRB] = "rrb", [OP_RRR] = "rrr"
-	};
-	ft_printf("%s\n",names[op]);
-}
-
 static int	sort_find_min_index(t_stack *a)
 {
 	int	count;
@@ -36,27 +25,6 @@ static int	sort_find_min_index(t_stack *a)
 	}
 	return (min_idx);
 }
-
-// void	op_visualize(t_stack *a, t_stack *b, char*label)
-//{
-//	int	a_top;
-//	int	b_top;
-//	puts("WWWWWWWWWWWWWWWWWWWWWWWWW");
-//	printf("#a->size[%d], #b->size[%d]\n", a->size, b->size);
-//	for (int i = 0; i < a->capacity; i++)
-//	{
-//		a_top = (a->head + i) % a->capacity;
-//		printf("%s: a->head[%d], a->data[(%d)] = %d\n",label, a->head, a_top,
-//			a->data[a_top]);
-//	}
-//	puts("------------------------");
-//	for (int i = 0; i < b->capacity; i++)
-//	{
-//		b_top = (b->head + i) % b->capacity;
-//		printf("%s: b->head[%d], b->data[(%d)] = %d\n",label, b->head, b_top,
-//			b->data[b_top]);
-//	}
-//}
 
 void	sort_simple(t_stack *a, t_stack *b)
 {
@@ -84,6 +52,28 @@ void	sort_simple(t_stack *a, t_stack *b)
 		i++;
 	}
 }
+
+
+// void	op_visualize(t_stack *a, t_stack *b, char*label)
+//{
+//	int	a_top;
+//	int	b_top;
+//	puts("WWWWWWWWWWWWWWWWWWWWWWWWW");
+//	printf("#a->size[%d], #b->size[%d]\n", a->size, b->size);
+//	for (int i = 0; i < a->capacity; i++)
+//	{
+//		a_top = (a->head + i) % a->capacity;
+//		printf("%s: a->head[%d], a->data[(%d)] = %d\n",label, a->head, a_top,
+//			a->data[a_top]);
+//	}
+//	puts("------------------------");
+//	for (int i = 0; i < b->capacity; i++)
+//	{
+//		b_top = (b->head + i) % b->capacity;
+//		printf("%s: b->head[%d], b->data[(%d)] = %d\n",label, b->head, b_top,
+//			b->data[b_top]);
+//	}
+//}
 // int	main(void)
 //{
 //	t_stack	a;

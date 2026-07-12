@@ -1,12 +1,12 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft/libft.h"
-#include "ft_printf/ftprintf.h"
-#include <limits.h>
-#include <stddef.h>
-#include <stdio.h>
-#include <stdbool.h>
+# include "libft/libft.h"
+# include "libftprintf/ft_printf.h"
+# include <limits.h>
+# include <stdbool.h>
+# include <stddef.h>
+# include <stdio.h>
 
 typedef enum e_strategy
 {
@@ -18,11 +18,18 @@ typedef enum e_strategy
 
 typedef enum e_op
 {
-	OP_SA, OP_SB, OP_SS,
-	OP_PA, OP_PB,
-	OP_RA, OP_RB, OP_RR,
-	OP_RRA, OP_RRB, OP_RRR
-} t_op;
+	OP_SA,
+	OP_SB,
+	OP_SS,
+	OP_PA,
+	OP_PB,
+	OP_RA,
+	OP_RB,
+	OP_RR,
+	OP_RRA,
+	OP_RRB,
+	OP_RRR
+}				t_op;
 
 typedef struct s_options
 {
@@ -39,8 +46,8 @@ typedef struct s_stack
 	int			head;
 }				t_stack;
 
-
-void sort_simple(t_stack *a,t_stack *b);
+// sort
+void			sort_simple(t_stack *a, t_stack *b);
 
 // operations
 void			op_push(t_stack *dst, t_stack *src);
@@ -61,5 +68,8 @@ void			op_swap(t_stack *n);
 void			op_sa(t_stack *a);
 void			op_sb(t_stack *b);
 void			op_ss(t_stack *a, t_stack *b);
+
+// print
+void			print_op(t_op op);
 
 #endif
