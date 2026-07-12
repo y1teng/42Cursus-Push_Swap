@@ -2,6 +2,7 @@
 # define PUSH_SWAP_H
 
 #include "libft/libft.h"
+#include "ft_printf/ftprintf.h"
 #include <limits.h>
 #include <stddef.h>
 #include <stdio.h>
@@ -15,7 +16,7 @@ typedef enum e_strategy
 	COMPLEX
 }				t_strategy;
 
-typedef enum eop
+typedef enum e_op
 {
 	OP_SA, OP_SB, OP_SS,
 	OP_PA, OP_PB,

@@ -1,12 +1,14 @@
 #include "push_swap.h"
-#include <stdio.h>
 
 void	print_op(y_op op)
 {
-	static const char *const names[] = {[ACT_NONE] = "", [ACT_SA] = "sa",
-		[ACT_SB] = "sb", [ACT_SS] = "ss", [ACT_PA] = "pa", [ACT_PB] = "pb",
-		[ACT_RA] = "ra", [ACT_RB] = "rb", [ACT_RR] = "rr", [ACT_RRA] = "rra",
-		[ACT_RRB] = "rrb", [ACT_RRR] = "rrr"};
+	static const char *const	names[] = {
+		[OP_SA] = "sa", [OP_SB] = "sb", [OP_SS] = "ss",
+		[OP_PA] = "pa", [OP_PB] = "pb",
+		[OP_RA] = "ra", [OP_RB] = "rb", [OP_RR] = "rr",
+		[OP_RRA] = "rra", [OP_RRB] = "rrb", [OP_RRR] = "rrr"
+	};
+	ft_printf("%s\n",names[op]);
 }
 
 static int	sort_find_min_index(t_stack *a)
