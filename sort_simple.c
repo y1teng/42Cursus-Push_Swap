@@ -67,26 +67,26 @@ int	main(void)
 	b.head = 2;
 	origin_size = a.size;
 	i = 0;
-	op_visualize(&a, &b);
+//	op_visualize(&a, &b);
 	
 	while (i < origin_size)
 	{
 		steps = find_min_index(&a);
 		while (steps)
 		{
+			op_visualize(&a, &b);
 			op_ra(&a);
 			steps--;
 		}
 		op_pb(&b, &a);
 		i++;
 	}
-	op_visualize(&a, &b);
 	i = 0;
 	while (i < origin_size)
 	{
 		op_pa(&a, &b);
 		i++;
 	}
-	op_visualize(&a, &b);
+//	op_visualize(&a, &b);
 	return (0);
 }
