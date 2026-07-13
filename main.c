@@ -7,31 +7,30 @@
  * 引数が出た時点で止まり、そのインデックスを opt->num_start に記録する
  * （そこから先が実際にソートする整数列）。
  */
-void	parse_flags(int argc, char **argv, t_options *opt){
+void	parse_flags(int argc, char **argv, t_options *opt)
+{
+	int	i;
+
 	opt->strategy = ADAPTIVE;
 	opt->bench = 0;
-	int i;
 	i = 1;
-	
-	while(i < argc)
+	while (i < argc)
 	{
-		if(ft_strncmp(argv[i],"--adaptive",11) == 0)
+		if (ft_strncmp(argv[i], "--adaptive", 11) == 0)
 			opt->strategy = ADAPTIVE;
-		else if(ft_strncmp(argv[i],"--simple",9) == 0)
+		else if (ft_strncmp(argv[i], "--simple", 9) == 0)
 			opt->strategy = SIMPLE;
-		else if(ft_strncmp(argv[i],"--medium",9) == 0)
+		else if (ft_strncmp(argv[i], "--medium", 9) == 0)
 			opt->strategy = MEDIUM;
-		else if(ft_strncmp(argv[i],"--complex",10) == 0)
+		else if (ft_strncmp(argv[i], "--complex", 10) == 0)
 			opt->strategy = COMPLEX;
-		else if(ft_strncmp(argv[i],"--bench",8) == 0)
+		else if (ft_strncmp(argv[i], "--bench", 8) == 0)
 			opt->bench = 1;
 		else
-			break;
+			break ;
 		i++;
 	}
 	opt->num_start = i;
-
-
 }
 
 /** @brief arr の中に同じ値が2つ以上あれば1を返す（重複チェック）。 */
@@ -115,19 +114,31 @@ static int	parse_atoi_array(int *arr, char **argv, int size)
  */
 int	main(int argc, char **argv)
 {
-	int	arr[100];
-	int	size;
-	t_options opt;
-	t_stack a;
-	t_stack b;
+	int			arr[100];
+	int			size;
+	t_options	opt;
+	t_stack		a;
+	t_stack		b;
+	int			buffer_b[100];
+	int i = 0;
 
 	if (argc < 2)
 		return (0);
 	parse_flags(argc, argv, &opt);
 	size = argc - opt.num_start;
-	if(size <= 0)
-		return 0;
-	if (parse_atoi_array(arr, &argv[opt.num_start], size) || parse_has_overlap(arr, size))
+	if (size <= 0)
+		return (0);
+	else if(size == 1)
+	{
+		while(ft_isspace(argv[opt.num_start][i]))
+			i++;
+		if(is_space(argv[opt.num_start][i]))
+			{
+				 // = ft_split(argv[opt.num_start]);
+			}
+	}
+	if (parse_atoi_array(arr, &argv[opt.num_start], size)
+		|| parse_has_overlap(arr, size))
 	{
 		printf("Error\n");
 		return (1);
@@ -136,12 +147,10 @@ int	main(int argc, char **argv)
 	a.capacity = size;
 	a.size = size;
 	a.head = 0;
-	int buffer_b[100];
 	b.data = buffer_b;
 	b.capacity = size;
 	b.size = 0;
 	b.head = 0;
-	sort_simple(&a,&b);
-
+	sort_simple(&a, &b);
 	return (0);
 }
