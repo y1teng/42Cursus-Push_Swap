@@ -1,5 +1,12 @@
 #include "push_swap.h"
 
+/**
+ * @brief argv[1] 以降を先頭から見て `--` で始まる間だけフラグとして読む。
+ *
+ * `--simple --bench` のように複数個連続すること想定。`--` で始まらない
+ * 引数が出た時点で止まり、そのインデックスを opt->num_start に記録する
+ * （そこから先が実際にソートする整数列）。
+ */
 void	parse_flags(int argc, char **argv, t_options *opt){
 	opt->strategy = ADAPTIVE;
 	opt->bench = 0;
@@ -27,6 +34,7 @@ void	parse_flags(int argc, char **argv, t_options *opt){
 
 }
 
+/** @brief arr の中に同じ値が2つ以上あれば1を返す（重複チェック）。 */
 static int	parse_has_overlap(int *arr, int size)
 {
 	int	i;
@@ -47,6 +55,11 @@ static int	parse_has_overlap(int *arr, int size)
 	return (0);
 }
 
+/**
+ * @brief 文字列 s を int に変換する。
+ * @return 数字以外の文字を含む、空文字、または int の範囲を超える場合は 1。
+ * 成功時は 0 を返し、変換結果を *out に書く。
+ */
 static int	parse_int(const char *s, int *out)
 {
 	long	n;
@@ -77,6 +90,7 @@ static int	parse_int(const char *s, int *out)
 	return (0);
 }
 
+/** @brief argv[0..size) を順に parse_int() して arr に書く。失敗したら1。 */
 static int	parse_atoi_array(int *arr, char **argv, int size)
 {
 	int	i;
@@ -92,6 +106,13 @@ static int	parse_atoi_array(int *arr, char **argv, int size)
 }
 #include <stdio.h>
 
+/**
+ * @brief エントリーポイント。フラグと整数列をパースし、a/b の t_stack を
+ * 組み立てて sort_simple() に渡す。
+ *
+ * `capacity` はどちらのスタックも入力個数ぶん確保する。b は最初 size=0
+ * （空）で、a からの pb でしか値が入らない。
+ */
 int	main(int argc, char **argv)
 {
 	int	arr[100];
