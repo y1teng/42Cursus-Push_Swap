@@ -27,7 +27,7 @@
 # include <stdbool.h>
 # include <stddef.h>
 # include <stdio.h>
-
+#include <stdlib.h>
 /** ソート戦略。実行時に `--simple` 等のフラグで選ぶ（未指定なら ADAPTIVE）。 */
 typedef enum e_strategy
 {

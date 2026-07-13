@@ -34,32 +34,7 @@ void	parse_flags(int argc, char **argv, t_options *opt)
 }
 
 /** @brief arr の中に同じ値が2つ以上あれば1を返す（重複チェック）。 */
-static int	parse_has_overlap(int *arr, int size)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (arr[i] == arr[j])
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-/**
- * @brief 文字列 s を int に変換する。
- * @return 数字以外の文字を含む、空文字、または int の範囲を超える場合は 1。
- * 成功時は 0 を返し、変換結果を *out に書く。
- */
-static int	parse_int(const char *s, int *out)
+int	parse_int(const char *s, int *out)
 {
 	long	n;
 	int		sign;
@@ -88,6 +63,13 @@ static int	parse_int(const char *s, int *out)
 	*out = (int)(n * sign);
 	return (0);
 }
+void	stack_init(t_stack *s, int *data, size_t capacity, size_t size)
+{
+	s->data = data;
+	s->capacity = capacity;
+	s->size = size;
+	s->head = 0;
+}
 
 /** @brief argv[0..size) を順に parse_int() して arr に書く。失敗したら1。 */
 static int	parse_atoi_array(int *arr, char **argv, int size)
@@ -103,7 +85,64 @@ static int	parse_atoi_array(int *arr, char **argv, int size)
 	}
 	return (0);
 }
-#include <stdio.h>
+
+int	*build_arr(char **argv, int start, int argc, int *out_size)
+{
+	char	**tokens;
+	int		*arr;
+	int		size;
+	int		i;
+
+	if (argc - start == 1)
+	{
+		tokens = ft_split(argv[start], ' ');
+		size = 0;
+		while (tokens[size])
+			size++;
+		arr = ft_calloc(sizeof(int), size);
+		if (parse_atoi_array(arr, tokens, size))
+			arr = NULL;
+		i = 0;
+		while (tokens[i])
+			free(tokens[i++]);
+		free(tokens);
+	}
+	else
+	{
+		size = argc - start;
+		arr = ft_calloc(sizeof(int), size);
+		if (parse_atoi_array(arr, &argv[start], size))
+			arr = NULL;
+	}
+	*out_size = size;
+	return (arr);
+}
+// 「通常引数」or「単一スペース区切り」を吸収して、
+// arr(malloc済み)とsizeを確定させて返す。ここが今回の分岐の全責任を持つ
+
+int	validate_arr(int *arr, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (arr[i] == arr[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+// parse_int相当のエラーチェック + parse_has_overlap
+// ※実は parse_int は build_arr の中で数値変換する時に使うはず
+//   なので validate は「重複チェックのみ」でもいい
 
 /**
  * @brief エントリーポイント。フラグと整数列をパースし、a/b の t_stack を
@@ -114,43 +153,25 @@ static int	parse_atoi_array(int *arr, char **argv, int size)
  */
 int	main(int argc, char **argv)
 {
-	int			arr[100];
-	int			size;
 	t_options	opt;
 	t_stack		a;
 	t_stack		b;
-	int			buffer_b[100];
-	int i = 0;
+	int			*arr;
+	int			size;
 
 	if (argc < 2)
 		return (0);
 	parse_flags(argc, argv, &opt);
-	size = argc - opt.num_start;
-	if (size <= 0)
-		return (0);
-	else if(size == 1)
+	arr = build_arr(argv, opt.num_start, argc, &size);
+	if (!arr || size <= 0 || validate_arr(arr, size))
 	{
-		while(ft_isspace(argv[opt.num_start][i]))
-			i++;
-		if(is_space(argv[opt.num_start][i]))
-			{
-				 // = ft_split(argv[opt.num_start]);
-			}
-	}
-	if (parse_atoi_array(arr, &argv[opt.num_start], size)
-		|| parse_has_overlap(arr, size))
-	{
-		printf("Error\n");
+		ft_printf("Error\n");
 		return (1);
 	}
-	a.data = arr;
-	a.capacity = size;
-	a.size = size;
-	a.head = 0;
-	b.data = buffer_b;
-	b.capacity = size;
-	b.size = 0;
-	b.head = 0;
+	stack_init(&a, arr, size, size);
+	stack_init(&b, ft_calloc(sizeof(int), size), size, 0);
 	sort_simple(&a, &b);
+	free(a.data);
+	free(b.data);
 	return (0);
 }

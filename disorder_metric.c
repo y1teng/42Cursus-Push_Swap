@@ -52,15 +52,15 @@ void	disorder_print(t_stack *a)
 
 // strategy_branch
 
-int	main(void)
-{
-	t_stack	a;
-	int		buffer[2] = {10, 5};
+// int	main(void)
+// {
+// 	t_stack	a;
+// 	int		buffer[2] = {10, 5};
 
-	a.capacity = 2;
-	a.size = 2;
-	a.data = buffer;
-	a.head = 0;
-	disorder_print(&a);
-	return (0);
-}
+// 	a.capacity = 2;
+// 	a.size = 2;
+// 	a.data = buffer;
+// 	a.head = 0;
+// 	disorder_print(&a);
+// 	return (0);
+// }
