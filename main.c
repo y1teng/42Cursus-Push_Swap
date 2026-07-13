@@ -165,6 +165,7 @@ int	main(int argc, char **argv)
 	arr = build_arr(argv, opt.num_start, argc, &size);
 	if (!arr || size <= 0 || validate_arr(arr, size))
 	{
+		free(arr);
 		ft_printf("Error\n");
 		return (1);
 	}
