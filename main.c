@@ -171,7 +171,17 @@ int	main(int argc, char **argv)
 	}
 	stack_init(&a, arr, size, size);
 	stack_init(&b, ft_calloc(sizeof(int), size), size, 0);
-	sort_simple(&a, &b);
+	if (a.size <= 1)
+		; // 1個以下は既にソート済み、何もしない
+	else if (a.size == 2)
+	{
+		if (a.data[a.head] > a.data[(a.head + 1) % a.capacity])
+			op_sa(&a);
+	}
+	else if (a.size == 3)
+		sort_three(&a);
+	else
+		sort_simple(&a, &b); // 4個以上はまだ選択ソートに任せる(今後ここを拡張)
 	free(a.data);
 	free(b.data);
 	return (0);

@@ -27,7 +27,7 @@
 # include <stdbool.h>
 # include <stddef.h>
 # include <stdio.h>
-#include <stdlib.h>
+# include <stdlib.h>
 /** ソート戦略。実行時に `--simple` 等のフラグで選ぶ（未指定なら ADAPTIVE）。 */
 typedef enum e_strategy
 {
@@ -89,6 +89,9 @@ typedef struct s_stack
  * 小さい入力で正しく動くことを優先している。
  */
 void			sort_simple(t_stack *a, t_stack *b);
+
+// add 3 sort
+void			sort_three(t_stack *a);
 
 /**
  * @brief src の先頭を dst の先頭へ移す（pa/pb の実体）。
