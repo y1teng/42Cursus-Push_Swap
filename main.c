@@ -180,6 +180,8 @@ int	main(int argc, char **argv)
 	}
 	else if (a.size == 3)
 		sort_three(&a);
+	else if (a.size == 5)
+		sort_five(&a,&b);
 	else
 		sort_simple(&a, &b); // 4個以上はまだ選択ソートに任せる(今後ここを拡張)
 	free(a.data);

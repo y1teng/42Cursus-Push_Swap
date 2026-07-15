@@ -23,6 +23,7 @@ void	op_rotate_shortest(t_stack *n, int steps)
 		}
 	}
 }
+
 void	sort_five(t_stack *a, t_stack *b)
 {
 	int	i;
@@ -39,9 +40,9 @@ void	sort_five(t_stack *a, t_stack *b)
 	{
 		min_idx = 0;
 		min = a->data[(a->head + count) % a->capacity];
+		count = 0;
 		while (count < a->size)
 		{
-			count = 0;
 			if (a->data[(a->head + count) % a->capacity] < min)
 			{
 				min = a->data[(a->head + count) % a->capacity];

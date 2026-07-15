@@ -92,7 +92,7 @@ void			sort_simple(t_stack *a, t_stack *b);
 
 // add 3 sort
 void			sort_three(t_stack *a);
-
+void    sort_five(t_stack *a, t_stack *b);
 /**
  * @brief src の先頭を dst の先頭へ移す（pa/pb の実体）。
  * src が空なら何もしない。
