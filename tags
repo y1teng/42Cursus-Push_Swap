@@ -9,36 +9,79 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	//
+$(NAME)	Makefile	/^$(NAME): $(OBJS)$/;"	t
 $(NAME)	libft/Makefile	/^$(NAME): $(OBJS)$/;"	t
 $(NAME)	libftprintf/Makefile	/^$(NAME): $(OBJS)$/;"	t
+%.o	Makefile	/^%.o: %.c $(HEADER)$/;"	t
 %.o	libft/Makefile	/^%.o: %.c$/;"	t
 %.o	libftprintf/Makefile	/^%.o: %.c ft_printf.h$/;"	t
 ***	libft/00_test/teat.md	/^***$/;"	s	chapter:見出し1
+0	.claude/settings.local.json	/^      "Bash(gh issue *)",$/;"	s	array:permissions.allow
+1	.claude/settings.local.json	/^      "Bash(gh pr *)",$/;"	s	array:permissions.allow
+10	.claude/settings.local.json	/^      "Bash(timeout 5 .\/t5final)",$/;"	s	array:permissions.allow
+11	.claude/settings.local.json	/^      "Bash(echo \\"exit code: $?\\")",$/;"	s	array:permissions.allow
+12	.claude/settings.local.json	/^      "Bash(grep -E '^[0-9]{5}$' out.txt)",$/;"	s	array:permissions.allow
+13	.claude/settings.local.json	/^      "Bash(sed 's\/if\\\\(is_sorted\\\\(&a\\\\)\\\\)\/if\\\\(!is_sorted\\\\(\\\\\\\\&a\\\\)\\\\/;"	s	array:permissions.allow
+14	.claude/settings.local.json	/^      "Bash(timeout 5 .\/t5diag)",$/;"	s	array:permissions.allow
+15	.claude/settings.local.json	/^      "Bash(grep -E '^[0-9]{5}$')",$/;"	s	array:permissions.allow
+16	.claude/settings.local.json	/^      "Bash(timeout 5 .\/t5_v2)",$/;"	s	array:permissions.allow
+17	.claude/settings.local.json	/^      "Bash(grep -cE '^[0-9]{5}$' out2.txt)"$/;"	s	array:permissions.allow
+2	.claude/settings.local.json	/^      "Bash(git status *)",$/;"	s	array:permissions.allow
+3	.claude/settings.local.json	/^      "Bash(git -C libft status)",$/;"	s	array:permissions.allow
+4	.claude/settings.local.json	/^      "Bash(git -C libftprintf status)",$/;"	s	array:permissions.allow
+5	.claude/settings.local.json	/^      "Bash(cc -Wall -Wextra test_sort_five.c sort_five.c sort_three.c op_p.c op_r.c op_rr.c op_/;"	s	array:permissions.allow
+6	.claude/settings.local.json	/^      "Bash(timeout 2 \/tmp\/t5_run)",$/;"	s	array:permissions.allow
+7	.claude/settings.local.json	/^      "Bash(cc *)",$/;"	s	array:permissions.allow
+8	.claude/settings.local.json	/^      "Bash(echo \\"exit: $?\\")",$/;"	s	array:permissions.allow
+9	.claude/settings.local.json	/^      "Read(\/\/tmp\/**)",$/;"	s	array:permissions.allow
+ADAPTIVE	push_swap.h	/^	ADAPTIVE,$/;"	e	enum:e_strategy
 AI利用について	libft/README.md	/^### AI利用について$/;"	S	section:libft""Resources
 AI利用について	libftprintf/README.md	/^### AI利用について$/;"	S	section:ft_printf""Resources
 BUF_SIZE	libft/00_test/ft_memcpy_t01_n0.c	/^#define BUF_SIZE /;"	d	file:
 BUF_SIZE	libft/00_test/ft_memcpy_t02_NULL.c	/^#define BUF_SIZE /;"	d	file:
 BUF_SIZE	libft/00_test/ft_memcpy_t03_overlap.c	/^#define BUF_SIZE /;"	d	file:
+CC	Makefile	/^CC = cc$/;"	m
 CC	libft/Makefile	/^CC = cc $/;"	m
 CC	libftprintf/Makefile	/^CC = cc$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
 CFLAGS	libft/Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
 CFLAGS	libftprintf/Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
+COMPLEX	push_swap.h	/^	COMPLEX$/;"	e	enum:e_strategy
 Description	libft/README.md	/^## Description $/;"	s	chapter:libft
 Description	libftprintf/README.md	/^## Description$/;"	s	chapter:ft_printf
 FT_PRINTF_H	libftprintf/ft_printf.h	/^# define FT_PRINTF_H$/;"	d
+HEADER	Makefile	/^HEADER = push_swap.h$/;"	m
 Instructions	libft/README.md	/^## Instructions$/;"	s	chapter:libft
 Instructions	libftprintf/README.md	/^## Instructions$/;"	s	chapter:ft_printf
+LIBFT	Makefile	/^LIBFT = libft\/libft.a$/;"	m
+LIBFTPRINTF	Makefile	/^LIBFTPRINTF = libftprintf\/libftprintf.a$/;"	m
 LIBFT_H	libft/libft.h	/^# define LIBFT_H$/;"	d
 LOWER_CASE	libftprintf/ft_printf.h	/^# define LOWER_CASE /;"	d
+MEDIUM	push_swap.h	/^	MEDIUM,$/;"	e	enum:e_strategy
 Makefile の使い方	libftprintf/README.md	/^### Makefile の使い方$/;"	S	section:ft_printf""Instructions
+NAME	Makefile	/^NAME = push_swap$/;"	m
 NAME	libft/Makefile	/^NAME = libft.a$/;"	m
 NAME	libftprintf/Makefile	/^NAME = libftprintf.a$/;"	m
+OBJS	Makefile	/^OBJS = $(SRCS:.c=.o)$/;"	m
 OBJS	libft/Makefile	/^OBJS = $(SRCS:.c=.o)$/;"	m
 OBJS	libftprintf/Makefile	/^OBJS = $(SRCS:.c=.o)$/;"	m
+OP_PA	push_swap.h	/^	OP_PA,$/;"	e	enum:e_op
+OP_PB	push_swap.h	/^	OP_PB,$/;"	e	enum:e_op
+OP_RA	push_swap.h	/^	OP_RA,$/;"	e	enum:e_op
+OP_RB	push_swap.h	/^	OP_RB,$/;"	e	enum:e_op
+OP_RR	push_swap.h	/^	OP_RR,$/;"	e	enum:e_op
+OP_RRA	push_swap.h	/^	OP_RRA,$/;"	e	enum:e_op
+OP_RRB	push_swap.h	/^	OP_RRB,$/;"	e	enum:e_op
+OP_RRR	push_swap.h	/^	OP_RRR$/;"	e	enum:e_op
+OP_SA	push_swap.h	/^	OP_SA,$/;"	e	enum:e_op
+OP_SB	push_swap.h	/^	OP_SB,$/;"	e	enum:e_op
+OP_SS	push_swap.h	/^	OP_SS,$/;"	e	enum:e_op
 PUSH_SWAP_H	practices/liner_singly/push_swap.h	/^# define PUSH_SWAP_H$/;"	d
 PUSH_SWAP_H	push_swap.h	/^# define PUSH_SWAP_H$/;"	d
 Resources	libft/README.md	/^## Resources$/;"	s	chapter:libft
 Resources	libftprintf/README.md	/^## Resources$/;"	s	chapter:ft_printf
+SIMPLE	push_swap.h	/^	SIMPLE,$/;"	e	enum:e_strategy
+SRCS	Makefile	/^SRCS =	main.c	\\$/;"	m
 SRCS	libft/Makefile	/^SRCS =	ft_atoi.c\\$/;"	m
 SRCS	libftprintf/Makefile	/^SRCS =	fmt_c.c \\$/;"	m
 UPPER_CASE	libftprintf/ft_printf.h	/^# define UPPER_CASE /;"	d
@@ -47,12 +90,16 @@ UPPER_CASE	libftprintf/ft_printf.h	/^# define UPPER_CASE /;"	d
 `%p`	libftprintf/README.md	/^#### `%p`$/;"	t	subsection:ft_printf""Description""型選択
 `%s` と NULL	libftprintf/README.md	/^#### `%s` と NULL$/;"	t	subsection:ft_printf""Description""型選択
 `%u`, `%x`, `%X`	libftprintf/README.md	/^#### `%u`, `%x`, `%X`$/;"	t	subsection:ft_printf""Description""型選択
+all	Makefile	/^all: $(NAME)$/;"	t
 all	libft/Makefile	/^all: $(NAME)$/;"	t
 all	libftprintf/Makefile	/^all: $(NAME)$/;"	t
-atoi_array	main.c	/^static int	atoi_array(int *arr, char **argv, int size)$/;"	f	typeref:typename:int	file:
+allow	.claude/settings.local.json	/^    "allow": [$/;"	a	object:permissions
+bench	push_swap.h	/^	int			bench;$/;"	m	struct:s_options	typeref:typename:int
 bubble_sort	practices/simplesort/bubble_sort.c	/^void bubble_sort(int *arr, int size){$/;"	f	typeref:typename:void
+build_arr	main.c	/^int	*build_arr(char **argv, int start, int argc, int *out_size)$/;"	f	typeref:typename:int *
 capacity	practices/circularbuff_02/circular.c	/^	int capacity;$/;"	m	struct:s_stack	typeref:typename:int	file:
-capacity	push_swap.h	/^	int	capacity;$/;"	m	struct:s_stack	typeref:typename:int
+capacity	push_swap.h	/^	int			capacity;$/;"	m	struct:s_stack	typeref:typename:int
+clean	Makefile	/^clean:$/;"	t
 clean	libft/Makefile	/^clean:$/;"	t
 clean	libftprintf/Makefile	/^clean:$/;"	t
 content	libft/libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
@@ -61,10 +108,14 @@ ctype.h	libft/README.md	/^### ctype.h$/;"	S	section:libft""ライブラリ概要
 data	practices/circularbuff/main.c	/^	char *data;$/;"	m	struct:s_queue	typeref:typename:char *	file:
 data	practices/circularbuff_02/circular.c	/^	int *data;$/;"	m	struct:s_stack	typeref:typename:int *	file:
 data	practices/circularbuff_02/main.c	/^	char *data;$/;"	m	struct:s_queue	typeref:typename:char *	file:
-data	push_swap.h	/^	int	*data;$/;"	m	struct:s_stack	typeref:typename:int *
+data	push_swap.h	/^	int			*data;$/;"	m	struct:s_stack	typeref:typename:int *
+disorder_compute	disorder_metric.c	/^double	disorder_compute(t_stack *a)$/;"	f	typeref:typename:double
+disorder_print	disorder_metric.c	/^void	disorder_print(t_stack *a)$/;"	f	typeref:typename:void
+e_op	push_swap.h	/^typedef enum e_op$/;"	g
+e_strategy	push_swap.h	/^typedef enum e_strategy$/;"	g
+fclean	Makefile	/^fclean: clean$/;"	t
 fclean	libft/Makefile	/^fclean: clean$/;"	t
 fclean	libftprintf/Makefile	/^fclean: clean$/;"	t
-find_min_index	sort_simple.c	/^int	find_min_index(t_stack *a)$/;"	f	typeref:typename:int
 fmt_c	libftprintf/fmt_c.c	/^int	fmt_c(va_list ap)$/;"	f	typeref:typename:int
 fmt_i	libftprintf/fmt_i.c	/^int	fmt_i(va_list ap)$/;"	f	typeref:typename:int
 fmt_p	libftprintf/fmt_p.c	/^int	fmt_p(va_list ap)$/;"	f	typeref:typename:int
@@ -82,7 +133,7 @@ ft_isascii	libft/ft_isascii.c	/^int	ft_isascii(int c)$/;"	f	typeref:typename:int
 ft_isdigit	libft/ft_isdigit.c	/^int	ft_isdigit(int c)$/;"	f	typeref:typename:int
 ft_islower	libft/ft_isalpha.c	/^static int	ft_islower(int c)$/;"	f	typeref:typename:int	file:
 ft_isprint	libft/ft_isprint.c	/^int	ft_isprint(int c)$/;"	f	typeref:typename:int
-ft_isspace	libft/ft_atoi.c	/^static int	ft_isspace(char c)$/;"	f	typeref:typename:int	file:
+ft_isspace	libft/ft_isspace.c	/^int	ft_isspace(char c)$/;"	f	typeref:typename:int
 ft_isupper	libft/ft_isalpha.c	/^static int	ft_isupper(int c)$/;"	f	typeref:typename:int	file:
 ft_itoa	libft/ft_itoa.c	/^char	*ft_itoa(int n)$/;"	f	typeref:typename:char *
 ft_itoa_convert	libft/ft_itoa.c	/^static char	*ft_itoa_convert(char *buf, unsigned long l_n, int size)$/;"	f	typeref:typename:char *	file:
@@ -133,17 +184,17 @@ ft_strtrim	libft/ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set
 ft_substr	libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f	typeref:typename:char *
 ft_tolower	libft/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f	typeref:typename:int
 ft_toupper	libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename:int
-has_overlap	main.c	/^static int	has_overlap(int *arr, int size)$/;"	f	typeref:typename:int	file:
 head	practices/circularbuff/main.c	/^	int head;$/;"	m	struct:s_queue	typeref:typename:int	file:
 head	practices/circularbuff_02/circular.c	/^	int head;$/;"	m	struct:s_stack	typeref:typename:int	file:
 head	practices/circularbuff_02/main.c	/^	int head;$/;"	m	struct:s_queue	typeref:typename:int	file:
-head	push_swap.h	/^	int	head;$/;"	m	struct:s_stack	typeref:typename:int
+head	push_swap.h	/^	int			head;$/;"	m	struct:s_stack	typeref:typename:int
 init_queue	practices/circularbuff/main.c	/^void init_queue(t_queue *q, char *buffer, int size)$/;"	f	typeref:typename:void
 init_queue	practices/circularbuff_02/main.c	/^void init_queue(t_queue *q, char *buffer, int size)$/;"	f	typeref:typename:void
 insert_sort	practices/simplesort/insert_sort.c	/^void insert_sort(int *arr, int size){$/;"	f	typeref:typename:void
 is_full	practices/circularbuff/main.c	/^int	is_full(t_queue *q)$/;"	f	typeref:typename:int
 is_full	practices/circularbuff_02/main.c	/^int	is_full(t_queue *q)$/;"	f	typeref:typename:int
 is_set	libft/ft_strtrim.c	/^static int	is_set(char c, char const *set)$/;"	f	typeref:typename:int	file:
+is_sorted	test_sort_five.c	/^int is_sorted(t_stack *a)$/;"	f	typeref:typename:int
 libft	libft/README.md	/^# libft$/;"	c
 main	libft/00_test/ft_atoi_t01_ft.c	/^int	main(void)$/;"	f	typeref:typename:int
 main	libft/00_test/ft_calloc_t01_overflow.c	/^int	main(void)$/;"	f	typeref:typename:int
@@ -223,12 +274,14 @@ main	practices/liner_singly/singy_op.c	/^int main()$/;"	f	typeref:typename:int
 main	practices/simplesort/bubble_sort.c	/^int main(){$/;"	f	typeref:typename:int
 main	practices/simplesort/insert_sort.c	/^int main(){$/;"	f	typeref:typename:int
 main	practices/simplesort/selection_sort.c	/^int main(){$/;"	f	typeref:typename:int
-main	sort_simple.c	/^int	main(void)$/;"	f	typeref:typename:int
+main	test_sort_five.c	/^int main()$/;"	f	typeref:typename:int
 next	libft/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
 next	practices/liner_singly/push_swap.h	/^	struct s_stack	*next;$/;"	m	struct:s_stack	typeref:struct:s_stack *
 next	practices/liner_singly/push_swap.h	/^	struct s_stack_d* next;$/;"	m	struct:s_stack_d	typeref:struct:s_stack_d *
 nm	practices/liner_singly/push_swap.h	/^	int		nm;$/;"	m	struct:s_stack	typeref:typename:int
 nm	practices/liner_singly/push_swap.h	/^	int		nm;$/;"	m	struct:s_stack_d	typeref:typename:int
+num_start	push_swap.h	/^	int			num_start;$/;"	m	struct:s_options	typeref:typename:int
+on_permutation	test_sort_five.c	/^void on_permutation(int *arr) $/;"	f	typeref:typename:void
 op_pa	op_p.c	/^void	op_pa(t_stack *dst, t_stack *src)$/;"	f	typeref:typename:void
 op_pb	op_p.c	/^void	op_pb(t_stack *dst, t_stack *src)$/;"	f	typeref:typename:void
 op_push	op_p.c	/^void	op_push(t_stack *dst, t_stack *src)$/;"	f	typeref:typename:void
@@ -239,6 +292,7 @@ op_reverse_rotate	op_rr.c	/^void	op_reverse_rotate(t_stack *n)$/;"	f	typeref:typ
 op_reverse_rotate	practices/circularbuff_02/circular.c	/^void op_reverse_rotate(t_stack* n)$/;"	f	typeref:typename:void
 op_rotate	op_r.c	/^void	op_rotate(t_stack *n)$/;"	f	typeref:typename:void
 op_rotate	practices/circularbuff_02/circular.c	/^void op_rotate(t_stack* n)$/;"	f	typeref:typename:void
+op_rotate_shortest	sort_five.c	/^void	op_rotate_shortest(t_stack *n, int steps)$/;"	f	typeref:typename:void
 op_rr	op_r.c	/^void	op_rr(t_stack *a, t_stack *b)$/;"	f	typeref:typename:void
 op_rra	op_rr.c	/^void	op_rra(t_stack *a)$/;"	f	typeref:typename:void
 op_rrb	op_rr.c	/^void	op_rrb(t_stack *b)$/;"	f	typeref:typename:void
@@ -250,17 +304,24 @@ op_ss	op_s.c	/^void	op_ss(t_stack *a, t_stack *b)$/;"	f	typeref:typename:void
 op_swap	op_s.c	/^void	op_swap(t_stack *n)$/;"	f	typeref:typename:void
 op_swap	practices/circularbuff_02/circular.c	/^void op_swap(t_stack *n)$/;"	f	typeref:typename:void
 pa	practices/circularbuff_02/circular.c	/^void pa(t_stack *dst,t_stack *src){$/;"	f	typeref:typename:void
-parse_int	main.c	/^static int	parse_int(const char *s, int *out)$/;"	f	typeref:typename:int	file:
+parse_atoi_array	main.c	/^static int	parse_atoi_array(int *arr, char **argv, int size)$/;"	f	typeref:typename:int	file:
+parse_flags	main.c	/^void	parse_flags(int argc, char **argv, t_options *opt)$/;"	f	typeref:typename:void
+parse_int	main.c	/^int	parse_int(const char *s, int *out)$/;"	f	typeref:typename:int
 pb	practices/circularbuff_02/circular.c	/^void pb(t_stack *dst,t_stack *src){$/;"	f	typeref:typename:void
+permissions	.claude/settings.local.json	/^  "permissions": {$/;"	o
+permute	test_sort_five.c	/^void permute(int *arr, int start, int end, void (*on_permutation)(int *))$/;"	f	typeref:typename:void
 pop	practices/circularbuff/main.c	/^char pop(t_queue *q){$/;"	f	typeref:typename:char
 pop	practices/circularbuff_02/main.c	/^char pop(t_queue *q){$/;"	f	typeref:typename:char
 prev	practices/liner_singly/push_swap.h	/^	struct s_stack_d* prev;$/;"	m	struct:s_stack_d	typeref:struct:s_stack_d *
+print_arr	test_sort_five.c	/^void print_arr(int* num)$/;"	f	typeref:typename:void
+print_op	print.c	/^void	print_op(t_op op)$/;"	f	typeref:typename:void
 printf_conv	libftprintf/ft_printf.c	/^static int	printf_conv(char spec, va_list ap)$/;"	f	typeref:typename:int	file:
 printf_core	libftprintf/ft_printf.c	/^static int	printf_core(const char *fmt, va_list ap)$/;"	f	typeref:typename:int	file:
 push	practices/circularbuff/main.c	/^void	push(t_queue *q, char value){$/;"	f	typeref:typename:void
 push	practices/circularbuff_02/main.c	/^void	push(t_queue *q, char value){$/;"	f	typeref:typename:void
 ra	practices/circularbuff_02/circular.c	/^void ra(t_stack *a){$/;"	f	typeref:typename:void
 rb	practices/circularbuff_02/circular.c	/^void rb(t_stack *b){$/;"	f	typeref:typename:void
+re	Makefile	/^re: fclean all$/;"	t
 re	libft/Makefile	/^re: fclean all$/;"	t
 re	libftprintf/Makefile	/^re: fclean all$/;"	t
 rr	practices/circularbuff_02/circular.c	/^void rr(t_stack *a, t_stack *b){$/;"	f	typeref:typename:void
@@ -269,6 +330,7 @@ rrb	practices/circularbuff_02/circular.c	/^void rrb(t_stack *b){$/;"	f	typeref:t
 rrr	practices/circularbuff_02/circular.c	/^void rrr(t_stack *a, t_stack *b){$/;"	f	typeref:typename:void
 s_conv	libftprintf/ft_printf.h	/^typedef struct s_conv$/;"	s
 s_list	libft/libft.h	/^typedef struct s_list$/;"	s
+s_options	push_swap.h	/^typedef struct s_options$/;"	s
 s_queue	practices/circularbuff/main.c	/^typedef struct s_queue$/;"	s	file:
 s_queue	practices/circularbuff_02/main.c	/^typedef struct s_queue$/;"	s	file:
 s_stack	practices/circularbuff_02/circular.c	/^typedef struct s_stack$/;"	s	file:
@@ -281,21 +343,32 @@ selection_sort	practices/simplesort/selection_sort.c	/^void selection_sort(int *
 size	practices/circularbuff/main.c	/^	int size;$/;"	m	struct:s_queue	typeref:typename:int	file:
 size	practices/circularbuff_02/circular.c	/^	int size;$/;"	m	struct:s_stack	typeref:typename:int	file:
 size	practices/circularbuff_02/main.c	/^	int size;$/;"	m	struct:s_queue	typeref:typename:int	file:
-size	push_swap.h	/^	int	size;$/;"	m	struct:s_stack	typeref:typename:int
+size	push_swap.h	/^	int			size;$/;"	m	struct:s_stack	typeref:typename:int
+sort_find_min_index	sort_simple.c	/^static int	sort_find_min_index(t_stack *a)$/;"	f	typeref:typename:int	file:
+sort_five	sort_five.c	/^void	sort_five(t_stack *a, t_stack *b)$/;"	f	typeref:typename:void
+sort_simple	sort_simple.c	/^void	sort_simple(t_stack *a, t_stack *b)$/;"	f	typeref:typename:void
+sort_three	sort_three.c	/^void	sort_three(t_stack *a)$/;"	f	typeref:typename:void
 spec	libftprintf/ft_printf.h	/^	char	spec;$/;"	m	struct:s_conv	typeref:typename:char
 ss	practices/circularbuff_02/circular.c	/^void ss(t_stack *a,t_stack *b){$/;"	f	typeref:typename:void
+stack_init	main.c	/^void	stack_init(t_stack *s, int *data, size_t capacity, size_t size)$/;"	f	typeref:typename:void
 stdlib.h	libft/README.md	/^#### stdlib.h$/;"	t	subsection:libft""ライブラリ概要""string.h
+strategy	push_swap.h	/^	t_strategy	strategy;$/;"	m	struct:s_options	typeref:typename:t_strategy
 string.h	libft/README.md	/^### string.h$/;"	S	section:libft""ライブラリ概要
+swap	test_sort_five.c	/^void swap(int *a,int *b)$/;"	f	typeref:typename:void
 t_conv	libftprintf/ft_printf.h	/^}			t_conv;$/;"	t	typeref:struct:s_conv
 t_list	libft/libft.h	/^}					t_list;$/;"	t	typeref:struct:s_list
+t_op	push_swap.h	/^}				t_op;$/;"	t	typeref:enum:e_op
+t_options	push_swap.h	/^}				t_options;$/;"	t	typeref:struct:s_options
 t_queue	practices/circularbuff/main.c	/^} t_queue;$/;"	t	typeref:struct:s_queue	file:
 t_queue	practices/circularbuff_02/main.c	/^} t_queue;$/;"	t	typeref:struct:s_queue	file:
 t_stack	practices/circularbuff_02/circular.c	/^} t_stack;$/;"	t	typeref:struct:s_stack	file:
 t_stack	practices/liner_singly/push_swap.h	/^}			t_stack;$/;"	t	typeref:struct:s_stack
-t_stack	push_swap.h	/^}		t_stack;$/;"	t	typeref:struct:s_stack
+t_stack	push_swap.h	/^}				t_stack;$/;"	t	typeref:struct:s_stack
 t_stack_d	practices/liner_singly/push_swap.h	/^}			t_stack_d;$/;"	t	typeref:struct:s_stack_d
+t_strategy	push_swap.h	/^}				t_strategy;$/;"	t	typeref:enum:e_strategy
 tail	practices/circularbuff/main.c	/^	int tail;$/;"	m	struct:s_queue	typeref:typename:int	file:
 tail	practices/circularbuff_02/main.c	/^	int tail;$/;"	m	struct:s_queue	typeref:typename:int	file:
+validate_arr	main.c	/^int	validate_arr(int *arr, int size)$/;"	f	typeref:typename:int
 コンパイル	libft/README.md	/^### コンパイル$/;"	S	section:libft""Instructions
 コンパイル前提	libft/README.md	/^### コンパイル前提$/;"	S	section:libft""Instructions
 テスト	libft/README.md	/^## テスト$/;"	s	chapter:libft

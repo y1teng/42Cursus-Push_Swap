@@ -12,6 +12,7 @@ SRCS =	main.c	\
 		print.c	\
 		sort_simple.c	\
 		sort_three.c	\
+		sort_five.c	\
 		disorder_metric.c	\
 		push_swap.c
 
