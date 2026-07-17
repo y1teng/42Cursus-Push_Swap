@@ -54,7 +54,7 @@ void	sort_five(t_stack *a, t_stack *b)
 			op_pb(b, a);
 		i++;
 	}
-	i = 0;
+	i = 2;
 	sort_three(a);
 	while (i < 2)
 	{
