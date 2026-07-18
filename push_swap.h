@@ -92,7 +92,8 @@ void			sort_simple(t_stack *a, t_stack *b);
 
 // add 3 sort
 void			sort_three(t_stack *a);
-void    sort_five(t_stack *a, t_stack *b);
+void			sort_five(t_stack *a, t_stack *b);
+void			op_rotate_shortest(t_stack *n, int steps);
 /**
  * @brief src の先頭を dst の先頭へ移す（pa/pb の実体）。
  * src が空なら何もしない。
@@ -119,6 +120,7 @@ void			op_rb(t_stack *b);
 /** @brief `rr`: ra と rb を同時に行う。 */
 void			op_rr(t_stack *a, t_stack *b);
 
+void	get_min_max(t_stack *a, int *min, int *max);
 /**
  * @brief スタック n を1つ右回転する（rra/rrb の実体）。
  *

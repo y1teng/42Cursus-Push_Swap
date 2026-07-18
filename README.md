@@ -1,1 +1,1 @@
-_This project has been created as part of the 42 curriculum by ykomori, ayaito._
+_This project has been created as part of the 42 curriculum by ykomori, ayaito
