@@ -150,7 +150,7 @@ int	main(int argc, char **argv)
 	int			size;
 	double		disorder;
 	int			effective;
-
+	int *counts;
 	effective = 0;
 	if (argc < 2)
 		return (0);
@@ -165,6 +165,12 @@ int	main(int argc, char **argv)
 	stack_init(&a, arr, size, size);
 	stack_init(&b, ft_calloc(sizeof(int), size), size, 0);
 	disorder = disorder_compute(&a);
+
+	counts = ft_calloc(sizeof(int), 11);
+	a.counts = counts;
+	b.counts = counts;
+	a.bench = opt.bench;
+	b.bench = opt.bench;
 	if (a.size <= 1 || disorder == 0.0)
 		;
 	else if (a.size == 2)
@@ -188,5 +194,6 @@ int	main(int argc, char **argv)
 	}
 	free(a.data);
 	free(b.data);
+	free(counts);
 	return (0);
 }

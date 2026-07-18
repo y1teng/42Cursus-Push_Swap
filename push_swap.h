@@ -8,6 +8,7 @@
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
+
 typedef enum e_strategy
 {
 	ADAPTIVE,
@@ -44,6 +45,8 @@ typedef struct s_stack
 	int			capacity;
 	int			size;
 	int			head;
+	int			*counts;
+	int			bench;
 }				t_stack;
 
 void			sort_simple(t_stack *a, t_stack *b);
@@ -74,6 +77,6 @@ void			op_sa(t_stack *a);
 void			op_sb(t_stack *b);
 void			op_ss(t_stack *a, t_stack *b);
 
-void			print_op(t_op op);
+void			print_op(t_stack *n, t_op op);
 
 #endif

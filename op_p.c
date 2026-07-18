@@ -17,11 +17,12 @@ void	op_push(t_stack *dst, t_stack *src)
 void	op_pa(t_stack *dst, t_stack *src)
 {
 	op_push(dst, src);
-	print_op(OP_PA);
+	print_op(dst,OP_PA);
 }
 
 void	op_pb(t_stack *dst, t_stack *src)
 {
 	op_push(dst, src);
-	print_op(OP_PB);
+	print_op(dst,OP_PB);
 }
+

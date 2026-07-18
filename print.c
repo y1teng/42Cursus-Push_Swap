@@ -1,7 +1,7 @@
 
 #include "push_swap.h"
 
-void	print_op(t_op op)
+void	print_op(t_stack *n, t_op op)
 {
 	static const char *const	names[] = {
 		[OP_SA] = "sa", [OP_SB] = "sb", [OP_SS] = "ss",
@@ -9,5 +9,7 @@ void	print_op(t_op op)
 		[OP_RA] = "ra", [OP_RB] = "rb", [OP_RR] = "rr",
 		[OP_RRA] = "rra", [OP_RRB] = "rrb", [OP_RRR] = "rrr"
 	};
+	if(!n->bench)
 	ft_printf("%s\n",names[op]);
+	n->counts[op]++;
 }
