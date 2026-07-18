@@ -51,6 +51,7 @@ void			sort_medium(t_stack *a, t_stack *b);
 void			sort_complex(t_stack *a, t_stack *b);
 void			sort_three(t_stack *a);
 void			sort_five(t_stack *a, t_stack *b);
+double			disorder_compute(t_stack *a);
 
 // operation
 void			op_rotate_shortest(t_stack *n, int steps);

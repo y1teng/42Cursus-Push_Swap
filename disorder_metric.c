@@ -9,6 +9,8 @@ double	disorder_compute(t_stack *a)
 	double	total_pairs;
 	double	ans;
 
+	if (a->size < 2)
+		return (0);
 	i = 0;
 	j = 0;
 	mistakes = 0;
@@ -16,18 +18,17 @@ double	disorder_compute(t_stack *a)
 	while (i < a->size)
 	{
 		j = i + 1;
-		total_pairs++;
 		while (j < a->size)
 		{
-			if (a->data[i] > a->data[j])
+			total_pairs++;
+			if (a->data[(a->head + i) % a->capacity]
+				> a->data[(a->head + j) % a->capacity])
 				mistakes++;
 			j++;
 		}
 		i++;
 	}
 	ans = mistakes / total_pairs;
-	printf("mistakes[%f] / total_pairs[%f]\n", mistakes, total_pairs);
-	printf("ans[%f]\n", ans);
 	return (ans);
 }
 
