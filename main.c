@@ -142,7 +142,7 @@ int	main(int argc, char **argv)
 	t_stack		b;
 	int			*arr;
 	int			size;
-
+	double disorder ;
 	if (argc < 2)
 		return (0);
 	parse_flags(argc, argv, &opt);
@@ -155,9 +155,9 @@ int	main(int argc, char **argv)
 	}
 	stack_init(&a, arr, size, size);
 	stack_init(&b, ft_calloc(sizeof(int), size), size, 0);
-	
-	if (a.size <= 1)
-		; // 1個以下は既にソート済み、何もしない
+	disorder = disorder_compute(&a);
+	if(a.size <= 1 || disorder == 0.0)
+		;
 	else if (a.size == 2)
 	{
 		if (a.data[a.head] > a.data[(a.head + 1) % a.capacity])
@@ -168,7 +168,7 @@ int	main(int argc, char **argv)
 	else if (a.size == 5)
 		sort_five(&a,&b);
 	else
-		sort_simple(&a, &b); // 4個以上はまだ選択ソートに任せる(今後ここを拡張)
+		sort_simple(&a, &b);
 	free(a.data);
 	free(b.data);
 	return (0);
