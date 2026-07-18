@@ -171,6 +171,7 @@ int	main(int argc, char **argv)
 	}
 	stack_init(&a, arr, size, size);
 	stack_init(&b, ft_calloc(sizeof(int), size), size, 0);
+	
 	if (a.size <= 1)
 		; // 1個以下は既にソート済み、何もしない
 	else if (a.size == 2)
