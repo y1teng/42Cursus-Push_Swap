@@ -1,12 +1,5 @@
 #include "push_swap.h"
 
-/**
- * @brief a の中の最小値が、現在の head から何歩先にあるかを返す。
- *
- * head 自体は書き換えず、`(head + count) % capacity` で仮想的に
- * 読むだけにしている（読み取りで head を進めてしまうのは初期の
- * バグだった）。
- */
 static int	sort_find_min_index(t_stack *a)
 {
 	int	count;

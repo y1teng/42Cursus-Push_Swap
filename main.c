@@ -1,12 +1,5 @@
 #include "push_swap.h"
 
-/**
- * @brief argv[1] 以降を先頭から見て `--` で始まる間だけフラグとして読む。
- *
- * `--simple --bench` のように複数個連続すること想定。`--` で始まらない
- * 引数が出た時点で止まり、そのインデックスを opt->num_start に記録する
- * （そこから先が実際にソートする整数列）。
- */
 void	parse_flags(int argc, char **argv, t_options *opt)
 {
 	int	i;
@@ -33,7 +26,6 @@ void	parse_flags(int argc, char **argv, t_options *opt)
 	opt->num_start = i;
 }
 
-/** @brief arr の中に同じ値が2つ以上あれば1を返す（重複チェック）。 */
 int	parse_int(const char *s, int *out)
 {
 	long	n;
@@ -71,7 +63,6 @@ void	stack_init(t_stack *s, int *data, size_t capacity, size_t size)
 	s->head = 0;
 }
 
-/** @brief argv[0..size) を順に parse_int() して arr に書く。失敗したら1。 */
 static int	parse_atoi_array(int *arr, char **argv, int size)
 {
 	int	i;
@@ -144,13 +135,6 @@ int	validate_arr(int *arr, int size)
 // ※実は parse_int は build_arr の中で数値変換する時に使うはず
 //   なので validate は「重複チェックのみ」でもいい
 
-/**
- * @brief エントリーポイント。フラグと整数列をパースし、a/b の t_stack を
- * 組み立てて sort_simple() に渡す。
- *
- * `capacity` はどちらのスタックも入力個数ぶん確保する。b は最初 size=0
- * （空）で、a からの pb でしか値が入らない。
- */
 int	main(int argc, char **argv)
 {
 	t_options	opt;
