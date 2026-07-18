@@ -31,7 +31,7 @@ void	sort_five(t_stack *a, t_stack *b)
 	int	count;
 	int	min_idx;
 
-	i = a->head;
+	i = 0;
 	min = a->data[i];
 	count = 0;
 	if (!a)
@@ -54,7 +54,7 @@ void	sort_five(t_stack *a, t_stack *b)
 			op_pb(b, a);
 		i++;
 	}
-	i = 2;
+	i = 0;
 	sort_three(a);
 	while (i < 2)
 	{
