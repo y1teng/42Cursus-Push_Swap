@@ -90,6 +90,9 @@ typedef struct s_stack
  */
 void			sort_simple(t_stack *a, t_stack *b);
 
+//add complex
+void sort_complex(t_stack *a, t_stack *b);
+
 // add 3 sort
 void			sort_three(t_stack *a);
 void			sort_five(t_stack *a, t_stack *b);
