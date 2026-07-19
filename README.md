@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by ykomori, ayaito*
+*This project has been created as part of the 42 curriculum by ykomori, ayaito.*
 
 # push_swap
 
