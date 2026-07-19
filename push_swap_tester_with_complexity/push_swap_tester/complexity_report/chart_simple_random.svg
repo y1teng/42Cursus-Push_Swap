@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+<rect width="100%" height="100%" fill="white"/>
+<text x="450.0" y="28" text-anchor="middle" font-family="sans-serif" font-size="20">--simple / random: max operation count</text>
+<line x1="90" y1="485" x2="870" y2="485" stroke="#111"/>
+<line x1="90" y1="45" x2="90" y2="485" stroke="#111"/>
+<circle cx="143.8" cy="442.4" r="5" fill="#dc2626"/>
+<text x="143.8" y="507" text-anchor="middle" font-family="sans-serif" font-size="12">16</text>
+<text x="150.8" y="434.4" font-family="sans-serif" font-size="11">111</text>
+<circle cx="311.9" cy="356.6" r="5" fill="#dc2626"/>
+<text x="311.9" y="507" text-anchor="middle" font-family="sans-serif" font-size="12">32</text>
+<text x="318.9" y="348.6" font-family="sans-serif" font-size="11">377</text>
+<circle cx="480.0" cy="272.1" r="5" fill="#dc2626"/>
+<text x="480.0" y="507" text-anchor="middle" font-family="sans-serif" font-size="12">64</text>
+<text x="487.0" y="264.1" font-family="sans-serif" font-size="11">1257</text>
+<circle cx="648.1" cy="178.3" r="5" fill="#dc2626"/>
+<text x="648.1" y="507" text-anchor="middle" font-family="sans-serif" font-size="12">128</text>
+<text x="655.1" y="170.3" font-family="sans-serif" font-size="11">4779</text>
+<circle cx="816.2" cy="87.6" r="5" fill="#dc2626"/>
+<text x="816.2" y="507" text-anchor="middle" font-family="sans-serif" font-size="12">256</text>
+<text x="823.2" y="79.6" font-family="sans-serif" font-size="11">17404</text>
+<polyline points="143.8,442.4 311.9,356.6 480.0,272.1 648.1,178.3 816.2,87.6" fill="none" stroke="#dc2626" stroke-width="3"/>
+<text x="450.0" y="538" text-anchor="middle" font-family="sans-serif" font-size="14">input size n (log scale)</text>
+<text x="22" y="280.0" transform="rotate(-90 22 280.0)" text-anchor="middle" font-family="sans-serif" font-size="14">max operations (log scale)</text>
+</svg>
