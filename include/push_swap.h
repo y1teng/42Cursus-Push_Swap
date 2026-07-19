@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/19 19:14:24 by ayaito            #+#    #+#             */
+/*   Updated: 2026/07/19 21:45:48 by ayaito           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -79,6 +91,6 @@ void			op_ss(t_stack *a, t_stack *b);
 
 // print
 void			print_op(t_stack *n, t_op op);
-int	ft_dprintf(int fd, const char *fmt, ...);
+int				ft_dprintf(int fd, const char *fmt, ...);
 
 #endif

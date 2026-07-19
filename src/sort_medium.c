@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_medium.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/19 19:14:55 by ayaito            #+#    #+#             */
+/*   Updated: 2026/07/19 21:45:48 by ayaito           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	isqrt(int n)
@@ -141,4 +153,3 @@ void	sort_medium(t_stack *a, t_stack *b)
 	distribute_chunks(a, b, num_chunks);
 	insert_back(a, b);
 }
-

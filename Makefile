@@ -1,10 +1,26 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/07/19 19:11:28 by ayaito            #+#    #+#              #
+#    Updated: 2026/07/19 21:39:29 by ayaito           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I$(HEADER_PATH) -I.
 
-SRCS =	main.c	\
+SRC_PATH = src/
+OBJ_PATH = obj/
+HEADER_PATH = include/
+
+SRC =	main.c	\
 		op_p.c	\
 		op_r.c	\
 		op_rr.c	\
@@ -16,15 +32,17 @@ SRCS =	main.c	\
 		sort_complex.c \
 		sort_three.c	\
 		sort_five.c	\
-		disorder_metric.c	\
-		push_swap.c
+		disorder_metric.c
+
+SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
 HEADER = push_swap.h
+HEADERS = $(addprefix $(HEADER_PATH), $(HEADER))
 
-OBJS = $(SRCS:.c=.o)
+OBJ = $(SRC:.c=.o)
+OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 
 LIBFT = libft/libft.a
-
 LIBFTPRINTF = libftprintf/libftprintf.a
 
 all: $(NAME)
@@ -34,11 +52,14 @@ $(NAME): $(OBJS)
 	$(MAKE) -C libftprintf
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) -o $(NAME)
 
-%.o: %.c $(HEADER)
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADERS) | $(OBJ_PATH)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(OBJ_PATH):
+	mkdir -p $(OBJ_PATH)
+
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJ)
 	$(MAKE) -C libft clean
 	$(MAKE) -C libftprintf clean
 

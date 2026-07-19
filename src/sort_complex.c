@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_complex.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/19 19:14:41 by ykomori           #+#    #+#             */
+/*   Updated: 2026/07/19 21:45:48 by ayaito           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	sort_array(int *arr, int size)
@@ -12,18 +24,17 @@ static void	sort_array(int *arr, int size)
 		j = 0;
 		while (j < size - 1 - i)
 		{
-			if (arr[j] > arr[j+1])
+			if (arr[j] > arr[j + 1])
 			{
 				tmp = arr[j];
-				arr[j] = arr[j+1];
-				arr[j+1] = tmp;
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
 			}
 			j++;
 		}
 		i++;
 	}
 }
-
 
 static int	find_rank(int *sorted, int size, int value)
 {
@@ -38,7 +49,6 @@ static int	find_rank(int *sorted, int size, int value)
 	}
 	return (-1);
 }
-
 
 void	ranks_convert(int *arr, int size)
 {
@@ -64,19 +74,17 @@ void	ranks_convert(int *arr, int size)
 	free(sorted);
 }
 
-
 static int	count_bits(int size)
 {
 	int	bits;
 	int	max_rank;
 
 	bits = 0;
-	max_rank = size-1;
+	max_rank = size - 1;
 	while ((max_rank >> bits) > 0)
 		bits++;
 	return (bits);
 }
-
 
 void	sort_complex(t_stack *a, t_stack *b)
 {
@@ -100,7 +108,7 @@ void	sort_complex(t_stack *a, t_stack *b)
 				op_ra(a);
 			j++;
 		}
-		while (b->size>0)
+		while (b->size > 0)
 			op_pa(a, b);
 		i++;
 	}

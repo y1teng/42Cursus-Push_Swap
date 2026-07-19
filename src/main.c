@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/19 19:11:20 by ayaito            #+#    #+#             */
+/*   Updated: 2026/07/19 21:33:55 by ayaito           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	parse_flags(int argc, char **argv, t_options *opt)
@@ -129,10 +141,12 @@ int	validate_arr(int *arr, int size)
 	}
 	return (0);
 }
-t_strategy	resolve_strategy(t_strategy strategy, double disorder)
+t_strategy	resolve_strategy(t_strategy strategy, int size, double disorder)
 {
 	if (strategy != ADAPTIVE)
 		return (strategy);
+	if (strategy == ADAPTIVE && (size == 2 || size == 3 || size == 5))
+		return (SIMPLE);
 	else if (disorder < 0.2)
 		return (SIMPLE);
 	else if (disorder < 0.5)
@@ -151,6 +165,12 @@ int	main(int argc, char **argv)
 	double		disorder;
 	int			effective;
 	int			*counts;
+	int			i;
+	int			total_ops;
+	int			pct;
+	char		*int_str;
+	char		frac_buf[3];
+
 	effective = 0;
 	if (argc < 2)
 		return (0);
@@ -159,13 +179,13 @@ int	main(int argc, char **argv)
 	if (!arr || size <= 0 || validate_arr(arr, size))
 	{
 		free(arr);
-		ft_printf("Error\n");
+		ft_dprintf(2, "Error\n");
 		return (1);
 	}
 	stack_init(&a, arr, size, size);
 	stack_init(&b, ft_calloc(sizeof(int), size), size, 0);
 	disorder = disorder_compute(&a);
-	effective = resolve_strategy(opt.strategy, disorder);
+	effective = resolve_strategy(opt.strategy, a.size, disorder);
 	counts = ft_calloc(sizeof(int), 11);
 	a.counts = counts;
 	b.counts = counts;
@@ -191,23 +211,10 @@ int	main(int argc, char **argv)
 	}
 	if (opt.bench)
 	{
-		static const char *const	strategy_names[] = {
-			[ADAPTIVE] = "Adaptive",
-			[SIMPLE] = "Simple",
-			[MEDIUM] = "Medium",
-			[COMPLEX] = "Complex"
-		};
-		static const char *const	complexity_names[] = {
-			[SIMPLE] = "O(n\xc2\xb2)",
-			[MEDIUM] = "O(n\xe2\x88\x9an)",
-			[COMPLEX] = "O(n log n)"
-		};
-		int		i;
-		int		total_ops;
-		int		pct;
-		char	*int_str;
-		char	frac_buf[3];
-
+		static const char *const strategy_names[] = {[ADAPTIVE] = "Adaptive",
+			[SIMPLE] = "Simple", [MEDIUM] = "Medium", [COMPLEX] = "Complex"};
+		static const char *const complexity_names[] = {[SIMPLE] = "O(n\xc2\xb2)",
+			[MEDIUM] = "O(n\xe2\x88\x9an)", [COMPLEX] = "O(n log n)"};
 		i = 0;
 		total_ops = 0;
 		while (i < 11)
@@ -226,10 +233,10 @@ int	main(int argc, char **argv)
 			strategy_names[opt.strategy], complexity_names[effective]);
 		ft_dprintf(2, "[bench] total_ops: %d\n", total_ops);
 		ft_dprintf(2, "[bench] sa: %d  sb: %d  ss: %d  pa: %d  pb: %d\n",
-			a.counts[OP_SA], a.counts[OP_SB], a.counts[OP_SS],
-			a.counts[OP_PA], a.counts[OP_PB]);
-		ft_dprintf(2, "[bench] ra: %d  rb: %d  rr: %d  rra: %d  rrb: %d  rrr: %d\n",
-			a.counts[OP_RA], a.counts[OP_RB], a.counts[OP_RR],
+			a.counts[OP_SA], a.counts[OP_SB], a.counts[OP_SS], a.counts[OP_PA],
+			a.counts[OP_PB]);
+		ft_dprintf(2, "[bench] ra: %d  rb: %d  rr: %d  rra: %d  rrb: %d  rrr:"
+			"%d\n ", a.counts[OP_RA], a.counts[OP_RB], a.counts[OP_RR],
 			a.counts[OP_RRA], a.counts[OP_RRB], a.counts[OP_RRR]);
 	}
 	free(a.data);
