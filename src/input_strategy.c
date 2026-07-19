@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   strategy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 13:23:52 by ykomori           #+#    #+#             */
-/*   Updated: 2026/07/19 22:06:10 by ayaito           ###   ########.fr       */
+/*   Created: 2026/07/19 22:26:53 by ayaito            #+#    #+#             */
+/*   Updated: 2026/07/19 22:26:55 by ayaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack *a)
+t_strategy	resolve_strategy(t_strategy strategy, int size, double disorder)
 {
-	int	va;
-	int	vb;
-	int	vc;
-
-	va = a->data[a->head];
-	vb = a->data[(a->head + 1) % a->capa];
-	vc = a->data[(a->head + 2) % a->capa];
-	if (va < vb && vb < vc)
-		return ;
-	else if (vb < va && va < vc)
-		op_sa(a);
-	else if (vb < vc && vc < va)
-		op_ra(a);
-	else if (vc < va && va < vb)
-		op_rra(a);
-	else if (va < vc && vc < vb)
-	{
-		op_rra(a);
-		op_sa(a);
-	}
+	if (strategy != ADAPTIVE)
+		return (strategy);
+	if (strategy == ADAPTIVE && (size == 2 || size == 3 || size == 5))
+		return (SIMPLE);
+	else if (disorder < 0.2)
+		return (SIMPLE);
+	else if (disorder < 0.5)
+		return (MEDIUM);
 	else
-	{
-		op_ra(a);
-		op_sa(a);
-	}
+		return (COMPLEX);
 }

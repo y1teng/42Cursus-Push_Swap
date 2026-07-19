@@ -6,7 +6,7 @@
 /*   By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 19:13:33 by ayaito            #+#    #+#             */
-/*   Updated: 2026/07/19 19:18:11 by ayaito           ###   ########.fr       */
+/*   Updated: 2026/07/19 22:06:10 by ayaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	op_swap(t_stack *n)
 	int	tmp;
 
 	first = n->head;
-	second = (n->head + 1) % n->capacity;
+	second = (n->head + 1) % n->capa;
 	tmp = n->data[first];
 	n->data[first] = n->data[second];
 	n->data[second] = tmp;

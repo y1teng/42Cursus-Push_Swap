@@ -6,7 +6,7 @@
 /*   By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 19:11:41 by ayaito            #+#    #+#             */
-/*   Updated: 2026/07/19 19:18:22 by ayaito           ###   ########.fr       */
+/*   Updated: 2026/07/19 22:06:10 by ayaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	op_reverse_rotate(t_stack *n)
 	int	bottom_pos;
 	int	new_head_pos;
 
-	bottom_pos = (n->head + n->size - 1) % n->capacity;
-	new_head_pos = (n->head - 1 + n->capacity) % n->capacity;
+	bottom_pos = (n->head + n->size - 1) % n->capa;
+	new_head_pos = (n->head - 1 + n->capa) % n->capa;
 	n->data[new_head_pos] = n->data[bottom_pos];
 	n->head = new_head_pos;
 }

@@ -6,7 +6,7 @@
 /*   By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 19:11:32 by ayaito            #+#    #+#             */
-/*   Updated: 2026/07/19 19:18:43 by ayaito           ###   ########.fr       */
+/*   Updated: 2026/07/19 22:06:10 by ayaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	op_push(t_stack *dst, t_stack *src)
 	if (!src->size)
 		return ;
 	tmp = src->data[src->head];
-	dst->head = (dst->head - 1 + dst->capacity) % dst->capacity;
-	src->head = (src->head + 1) % src->capacity;
+	dst->head = (dst->head - 1 + dst->capa) % dst->capa;
+	src->head = (src->head + 1) % src->capa;
 	dst->data[dst->head] = tmp;
 	dst->size++;
 	src->size--;

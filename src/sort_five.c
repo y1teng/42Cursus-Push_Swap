@@ -6,7 +6,7 @@
 /*   By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 19:14:51 by ayaito            #+#    #+#             */
-/*   Updated: 2026/07/19 21:45:48 by ayaito           ###   ########.fr       */
+/*   Updated: 2026/07/19 22:21:53 by ayaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,35 +38,16 @@ void	op_rotate_shortest(t_stack *n, int steps)
 void	sort_five(t_stack *a, t_stack *b)
 {
 	int	i;
-	int	min;
-	int	count;
-	int	min_idx;
 
 	i = 0;
-	min = a->data[i];
-	count = 0;
-	if (!a)
-		return ;
 	while (i < 2)
 	{
-		min_idx = 0;
-		min = a->data[(a->head + count) % a->capacity];
-		count = 0;
-		while (count < a->size)
-		{
-			if (a->data[(a->head + count) % a->capacity] < min)
-			{
-				min = a->data[(a->head + count) % a->capacity];
-				min_idx = count;
-			}
-			count++;
-		}
-		op_rotate_shortest(a, min_idx);
+		op_rotate_shortest(a, find_min_idx(a));
 		op_pb(b, a);
 		i++;
 	}
-	i = 0;
 	sort_three(a);
+	i = 0;
 	while (i < 2)
 	{
 		op_pa(a, b);

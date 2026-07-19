@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   input_validate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 13:23:52 by ykomori           #+#    #+#             */
-/*   Updated: 2026/07/19 22:06:10 by ayaito           ###   ########.fr       */
+/*   Created: 2026/07/19 22:45:29 by ayaito            #+#    #+#             */
+/*   Updated: 2026/07/19 22:45:30 by ayaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack *a)
+int	validate_arr(int *arr, int size)
 {
-	int	va;
-	int	vb;
-	int	vc;
+	int	i;
+	int	j;
 
-	va = a->data[a->head];
-	vb = a->data[(a->head + 1) % a->capa];
-	vc = a->data[(a->head + 2) % a->capa];
-	if (va < vb && vb < vc)
-		return ;
-	else if (vb < va && va < vc)
-		op_sa(a);
-	else if (vb < vc && vc < va)
-		op_ra(a);
-	else if (vc < va && va < vb)
-		op_rra(a);
-	else if (va < vc && vc < vb)
+	i = 0;
+	while (i < size)
 	{
-		op_rra(a);
-		op_sa(a);
+		j = i + 1;
+		while (j < size)
+		{
+			if (arr[i] == arr[j])
+				return (1);
+			j++;
+		}
+		i++;
 	}
-	else
-	{
-		op_ra(a);
-		op_sa(a);
-	}
+	return (0);
 }

@@ -1,36 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_simple.c                                      :+:      :+:    :+:   */
+/*   sort_medium_insert.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/19 19:11:09 by ayaito            #+#    #+#             */
-/*   Updated: 2026/07/19 22:06:10 by ayaito           ###   ########.fr       */
+/*   Created: 2026/07/19 22:45:29 by ayaito            #+#    #+#             */
+/*   Updated: 2026/07/19 22:45:29 by ayaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	sort_find_min_index(t_stack *a)
+static int	count_smaller(t_stack *a, int val)
 {
 	int	count;
-	int	i;
+	int	small_cnt;
+
+	small_cnt = 0;
+	count = 0;
+	while (count < a->size)
+	{
+		if (stack_at(a, count) < val)
+			small_cnt++;
+		count++;
+	}
+	return (small_cnt);
+}
+
+int	find_min_idx(t_stack *a)
+{
+	int	count;
 	int	min;
 	int	min_idx;
 
-	count = 0;
+	min = stack_at(a, 0);
 	min_idx = 0;
-	i = a->head;
-	min = a->data[i];
-	if (!a)
-		return (-1);
+	count = 0;
 	while (count < a->size)
 	{
-		i = (a->head + count) % a->capa;
-		if (min > a->data[i])
+		if (stack_at(a, count) < min)
 		{
-			min = a->data[i];
+			min = stack_at(a, count);
 			min_idx = count;
 		}
 		count++;
@@ -38,29 +49,15 @@ static int	sort_find_min_index(t_stack *a)
 	return (min_idx);
 }
 
-void	sort_simple(t_stack *a, t_stack *b)
+void	insert_back(t_stack *a, t_stack *b)
 {
-	int	i;
-	int	steps;
-	int	origin_size;
+	int	b_val;
 
-	origin_size = a->size;
-	i = 0;
-	while (i < origin_size)
+	while (b->size > 0)
 	{
-		steps = sort_find_min_index(a);
-		while (steps)
-		{
-			op_ra(a);
-			steps--;
-		}
-		op_pb(b, a);
-		i++;
-	}
-	i = 0;
-	while (i < origin_size)
-	{
+		b_val = b->data[b->head];
+		op_rotate_shortest(a, count_smaller(a, b_val));
 		op_pa(a, b);
-		i++;
+		op_rotate_shortest(a, find_min_idx(a));
 	}
 }

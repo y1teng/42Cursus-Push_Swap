@@ -6,7 +6,7 @@
 #    By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/19 19:11:28 by ayaito            #+#    #+#              #
-#    Updated: 2026/07/19 21:49:20 by ayaito           ###   ########.fr        #
+#    Updated: 2026/07/19 23:21:33 by ayaito           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,19 +20,25 @@ SRC_PATH = src/
 OBJ_PATH = obj/
 HEADER_PATH = include/
 
-SRC =	main.c	\
-		op_p.c	\
-		op_r.c	\
-		op_rr.c	\
-		op_s.c	\
-		ft_dprintf.c \
-		print.c	\
-		sort_simple.c	\
-		sort_medium.c \
+SRC =	disorder_metric.c \
+		input_build.c \
+		input_parsing.c \
+		input_strategy.c \
+		input_validate.c \
+		main.c \
+		op_p.c \
+		op_r.c \
+		op_rr.c \
+		op_s.c \
+		print.c \
+		print_ft_dprintf.c \
 		sort_complex.c \
-		sort_three.c	\
-		sort_five.c	\
-		disorder_metric.c
+		sort_five.c \
+		sort_medium.c \
+		sort_medium_chunk.c \
+		sort_medium_insert.c \
+		sort_simple.c \
+		sort_three.c
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 

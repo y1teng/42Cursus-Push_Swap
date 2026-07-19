@@ -6,7 +6,7 @@
 /*   By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 19:11:36 by ayaito            #+#    #+#             */
-/*   Updated: 2026/07/19 19:18:28 by ayaito           ###   ########.fr       */
+/*   Updated: 2026/07/19 22:06:10 by ayaito           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	op_rotate(t_stack *n)
 {
 	int	new_pos;
 
-	new_pos = (n->head + n->size) % n->capacity;
+	new_pos = (n->head + n->size) % n->capa;
 	n->data[new_pos] = n->data[n->head];
-	n->head = (n->head + 1) % n->capacity;
+	n->head = (n->head + 1) % n->capa;
 }
 
 void	op_ra(t_stack *a)
