@@ -6,7 +6,7 @@
 #    By: ayaito <ayaito@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/19 19:11:28 by ayaito            #+#    #+#              #
-#    Updated: 2026/07/19 21:39:29 by ayaito           ###   ########.fr        #
+#    Updated: 2026/07/19 21:49:20 by ayaito           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ_PATH)
 	$(MAKE) -C libft clean
 	$(MAKE) -C libftprintf clean
 
