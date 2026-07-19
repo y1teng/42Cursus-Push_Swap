@@ -61,6 +61,7 @@ void	stack_init(t_stack *s, int *data, size_t capacity, size_t size)
 	s->capacity = capacity;
 	s->size = size;
 	s->head = 0;
+	s->bench = 0;
 }
 
 static int	parse_atoi_array(int *arr, char **argv, int size)
@@ -128,18 +129,17 @@ int	validate_arr(int *arr, int size)
 	}
 	return (0);
 }
-t_strategy resolve_strategy(t_strategy strategy, double disorder)
+t_strategy	resolve_strategy(t_strategy strategy, double disorder)
 {
-	if(strategy != ADAPTIVE)
-		return strategy;
-	else if(disorder < 0.2)
-		return SIMPLE;
-	else if(disorder < 0.5)
-		return MEDIUM;
+	if (strategy != ADAPTIVE)
+		return (strategy);
+	else if (disorder < 0.2)
+		return (SIMPLE);
+	else if (disorder < 0.5)
+		return (MEDIUM);
 	else
-		return COMPLEX;
+		return (COMPLEX);
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -150,7 +150,7 @@ int	main(int argc, char **argv)
 	int			size;
 	double		disorder;
 	int			effective;
-
+	int			*counts;
 	effective = 0;
 	if (argc < 2)
 		return (0);
@@ -165,6 +165,10 @@ int	main(int argc, char **argv)
 	stack_init(&a, arr, size, size);
 	stack_init(&b, ft_calloc(sizeof(int), size), size, 0);
 	disorder = disorder_compute(&a);
+	effective = resolve_strategy(opt.strategy, disorder);
+	counts = ft_calloc(sizeof(int), 11);
+	a.counts = counts;
+	b.counts = counts;
 	if (a.size <= 1 || disorder == 0.0)
 		;
 	else if (a.size == 2)
@@ -178,7 +182,6 @@ int	main(int argc, char **argv)
 		sort_five(&a, &b);
 	else
 	{
-		effective = resolve_strategy(opt.strategy, disorder);
 		if (effective == SIMPLE)
 			sort_simple(&a, &b);
 		else if (effective == MEDIUM)
@@ -186,7 +189,51 @@ int	main(int argc, char **argv)
 		else
 			sort_complex(&a, &b);
 	}
+	if (opt.bench)
+	{
+		static const char *const	strategy_names[] = {
+			[ADAPTIVE] = "Adaptive",
+			[SIMPLE] = "Simple",
+			[MEDIUM] = "Medium",
+			[COMPLEX] = "Complex"
+		};
+		static const char *const	complexity_names[] = {
+			[SIMPLE] = "O(n\xc2\xb2)",
+			[MEDIUM] = "O(n\xe2\x88\x9an)",
+			[COMPLEX] = "O(n log n)"
+		};
+		int		i;
+		int		total_ops;
+		int		pct;
+		char	*int_str;
+		char	frac_buf[3];
+
+		i = 0;
+		total_ops = 0;
+		while (i < 11)
+		{
+			total_ops += a.counts[i];
+			i++;
+		}
+		pct = (int)(disorder * 10000 + 0.5);
+		int_str = ft_itoa(pct / 100);
+		frac_buf[0] = '0' + (pct % 100) / 10;
+		frac_buf[1] = '0' + (pct % 100) % 10;
+		frac_buf[2] = '\0';
+		ft_dprintf(2, "[bench] disorder:  %s.%s%\n", int_str, frac_buf);
+		free(int_str);
+		ft_dprintf(2, "[bench] strategy:  %s / %s\n",
+			strategy_names[opt.strategy], complexity_names[effective]);
+		ft_dprintf(2, "[bench] total_ops: %d\n", total_ops);
+		ft_dprintf(2, "[bench] sa: %d  sb: %d  ss: %d  pa: %d  pb: %d\n",
+			a.counts[OP_SA], a.counts[OP_SB], a.counts[OP_SS],
+			a.counts[OP_PA], a.counts[OP_PB]);
+		ft_dprintf(2, "[bench] ra: %d  rb: %d  rr: %d  rra: %d  rrb: %d  rrr: %d\n",
+			a.counts[OP_RA], a.counts[OP_RB], a.counts[OP_RR],
+			a.counts[OP_RRA], a.counts[OP_RRB], a.counts[OP_RRR]);
+	}
 	free(a.data);
 	free(b.data);
+	free(counts);
 	return (0);
 }
