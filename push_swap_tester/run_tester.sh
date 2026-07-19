@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-set -u
-SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-exec python3 "$SCRIPT_DIR/push_swap_tester.py" "$@"
