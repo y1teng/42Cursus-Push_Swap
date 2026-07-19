@@ -25,7 +25,10 @@ static int	*build_arr_from_string(char *str, int *out_size)
 		size++;
 	arr = ft_calloc(sizeof(int), size);
 	if (parse_atoi_array(arr, tokens, size))
+	{
+		free(arr);
 		arr = NULL;
+	}
 	i = 0;
 	while (tokens[i])
 		free(tokens[i++]);
@@ -44,7 +47,10 @@ int	*build_arr(char **argv, int start, int argc, int *out_size)
 	size = argc - start;
 	arr = ft_calloc(sizeof(int), size);
 	if (parse_atoi_array(arr, &argv[start], size))
+	{
+		free(arr);
 		arr = NULL;
+	}
 	*out_size = size;
 	return (arr);
 }
