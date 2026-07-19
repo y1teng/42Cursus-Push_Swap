@@ -47,13 +47,12 @@ typedef struct s_stack
 }				t_stack;
 
 void			sort_simple(t_stack *a, t_stack *b);
-
-//add complex
-void sort_complex(t_stack *a, t_stack *b);
-
-// add 3 sort
+void			sort_medium(t_stack *a, t_stack *b);
+void			sort_complex(t_stack *a, t_stack *b);
 void			sort_three(t_stack *a);
 void			sort_five(t_stack *a, t_stack *b);
+
+// operation
 void			op_rotate_shortest(t_stack *n, int steps);
 void			op_push(t_stack *dst, t_stack *src);
 void			op_pa(t_stack *dst, t_stack *src);
@@ -64,7 +63,6 @@ void			op_ra(t_stack *a);
 void			op_rb(t_stack *b);
 void			op_rr(t_stack *a, t_stack *b);
 
-void	get_min_max(t_stack *a, int *min, int *max);
 void			op_reverse_rotate(t_stack *n);
 void			op_rra(t_stack *a);
 void			op_rrb(t_stack *b);
