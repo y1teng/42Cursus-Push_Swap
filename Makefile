@@ -9,6 +9,7 @@ SRCS =	main.c	\
 		op_r.c	\
 		op_rr.c	\
 		op_s.c	\
+		ft_dprintf.c \
 		print.c	\
 		sort_simple.c	\
 		sort_medium.c \

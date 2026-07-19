@@ -77,6 +77,8 @@ void			op_sa(t_stack *a);
 void			op_sb(t_stack *b);
 void			op_ss(t_stack *a, t_stack *b);
 
+// print
 void			print_op(t_stack *n, t_op op);
+int	ft_dprintf(int fd, const char *fmt, ...);
 
 #endif
