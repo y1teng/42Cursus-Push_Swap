@@ -108,8 +108,6 @@ int	*build_arr(char **argv, int start, int argc, int *out_size)
 	*out_size = size;
 	return (arr);
 }
-// 「通常引数」or「単一スペース区切り」を吸収して、
-// arr(malloc済み)とsizeを確定させて返す。ここが今回の分岐の全責任を持つ
 
 int	validate_arr(int *arr, int size)
 {
@@ -130,10 +128,18 @@ int	validate_arr(int *arr, int size)
 	}
 	return (0);
 }
+t_strategy resolve_strategy(t_strategy strategy, double disorder)
+{
+	if(strategy != ADAPTIVE)
+		return strategy;
+	else if(disorder < 0.2)
+		return SIMPLE;
+	else if(disorder < 0.5)
+		return MEDIUM;
+	else
+		return COMPLEX;
+}
 
-// parse_int相当のエラーチェック + parse_has_overlap
-// ※実は parse_int は build_arr の中で数値変換する時に使うはず
-//   なので validate は「重複チェックのみ」でもいい
 
 int	main(int argc, char **argv)
 {
@@ -142,7 +148,10 @@ int	main(int argc, char **argv)
 	t_stack		b;
 	int			*arr;
 	int			size;
+	double		disorder;
+	int			effective;
 
+	effective = 0;
 	if (argc < 2)
 		return (0);
 	parse_flags(argc, argv, &opt);
@@ -155,9 +164,9 @@ int	main(int argc, char **argv)
 	}
 	stack_init(&a, arr, size, size);
 	stack_init(&b, ft_calloc(sizeof(int), size), size, 0);
-	
-	if (a.size <= 1)
-		; // 1個以下は既にソート済み、何もしない
+	disorder = disorder_compute(&a);
+	if (a.size <= 1 || disorder == 0.0)
+		;
 	else if (a.size == 2)
 	{
 		if (a.data[a.head] > a.data[(a.head + 1) % a.capacity])
@@ -166,9 +175,17 @@ int	main(int argc, char **argv)
 	else if (a.size == 3)
 		sort_three(&a);
 	else if (a.size == 5)
-		sort_five(&a,&b);
+		sort_five(&a, &b);
 	else
-		sort_simple(&a, &b); // 4個以上はまだ選択ソートに任せる(今後ここを拡張)
+	{
+		effective = resolve_strategy(opt.strategy, disorder);
+		if (effective == SIMPLE)
+			sort_simple(&a, &b);
+		else if (effective == MEDIUM)
+			sort_medium(&a, &b);
+		else
+			sort_complex(&a, &b);
+	}
 	free(a.data);
 	free(b.data);
 	return (0);
